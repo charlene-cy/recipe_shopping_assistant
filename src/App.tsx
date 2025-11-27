@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { RecipeSwipePage } from './components/RecipeSwipePage';
 import { RecipeDetailPage } from './components/RecipeDetailPage';
 import { CartPage } from './components/CartPage';
@@ -6,14 +6,76 @@ import { mockRecipes, mockWeeeProducts } from './data/mockData';
 import { Recipe, WeeeProduct, CartItem } from './types';
 import { Button } from './components/ui/button';
 import { ShoppingCart } from 'lucide-react';
-import { Toaster } from './components/ui/sonner';
+import { Toaster, toast } from './components/ui/sonner';
 
 type Screen = 'swipe' | 'detail' | 'cart';
+
+// App version/build timestamp - updates on every code change
+const APP_VERSION = Date.now().toString();
+const VERSION_KEY = 'app_version';
+const CART_KEY = 'cart_items';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<Screen>('swipe');
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+  // Clear cart on app update/code change (development)
+  useEffect(() => {
+    const isDevelopment = import.meta.env.DEV;
+
+    if (isDevelopment) {
+      const storedVersion = localStorage.getItem(VERSION_KEY);
+      const currentVersion = APP_VERSION;
+
+      // If version changed (code update/HMR), clear cart
+      if (storedVersion && storedVersion !== currentVersion) {
+        console.log('🔄 App updated - clearing cart and cached data');
+
+        // Clear cart
+        setCartItems([]);
+        localStorage.removeItem(CART_KEY);
+
+        // Clear any other cached data
+        localStorage.removeItem('match_results_cache');
+        localStorage.removeItem('user_feedback_cache');
+
+        // Optional: Show toast notification
+        setTimeout(() => {
+          toast.info('Cart refreshed due to app update');
+        }, 500);
+      }
+
+      // Update version
+      localStorage.setItem(VERSION_KEY, currentVersion);
+    }
+
+    // Also clear on page refresh in development
+    const handleBeforeUnload = () => {
+      if (isDevelopment) {
+        localStorage.removeItem(CART_KEY);
+        localStorage.removeItem('match_results_cache');
+        localStorage.removeItem('user_feedback_cache');
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
+
+  // HMR detection - clear cart when module is hot-updated
+  useEffect(() => {
+    if (import.meta.hot) {
+      import.meta.hot.on('vite:beforeUpdate', () => {
+        console.log('🔥 HMR update detected - clearing cart');
+        setCartItems([]);
+        localStorage.removeItem(CART_KEY);
+      });
+    }
+  }, []);
 
   // Create a map of product quantities from cart items
   const cartQuantities = new Map<string, number>();
@@ -110,6 +172,10 @@ export default function App() {
     setCartItems(prevItems => prevItems.filter(item => item.product.id !== productId));
   };
 
+  const handleClearCart = () => {
+    setCartItems([]);
+  };
+
   const getProductsForRecipe = (recipe: Recipe): WeeeProduct[] => {
     return mockWeeeProducts.filter(product =>
       recipe.ingredients.some(ingredient => ingredient.id === product.ingredientId)
@@ -163,6 +229,7 @@ export default function App() {
           onBack={() => setCurrentScreen('swipe')}
           onUpdateQuantity={handleUpdateQuantity}
           onRemoveItem={handleRemoveItem}
+          onClearCart={handleClearCart}
         />
       )}
     </div>

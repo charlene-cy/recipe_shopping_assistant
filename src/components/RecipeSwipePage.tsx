@@ -3,6 +3,7 @@ import { RecipeCard } from './RecipeCard';
 import { Recipe } from '@/src/types';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
+import { ThemeToggle } from './ThemeToggle';
 
 interface RecipeSwipePageProps {
   recipes: Recipe[];
@@ -26,22 +27,25 @@ export function RecipeSwipePage({ recipes, onRecipeSelect }: RecipeSwipePageProp
 
   if (currentIndex >= recipes.length) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-pink-50 p-4 md:p-6 lg:p-8">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-pink-50 dark:from-gray-900 dark:to-slate-900 p-4 md:p-6 lg:p-8 relative">
         <div className="text-center">
-          <p className="text-gray-600 mb-4">No more recipes to explore!</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-4">No more recipes to explore!</p>
           <Button onClick={() => setCurrentIndex(0)}>
             Start Over
           </Button>
+        </div>
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <ThemeToggle />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-pink-50 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-pink-50 dark:from-gray-900 dark:to-slate-900 relative overflow-hidden transition-colors">
       {/* Header */}
       <div className="absolute top-0 left-0 right-0 z-10 p-4 md:p-6 lg:p-8">
-        <h1 className="text-center text-xl md:text-3xl lg:text-4xl">Discover Recipes</h1>
+        <h1 className="text-center text-xl md:text-3xl lg:text-4xl dark:text-white">Hi Charlene! Ready to cook?</h1>
       </div>
 
       {/* Card Stack */}
@@ -61,6 +65,11 @@ export function RecipeSwipePage({ recipes, onRecipeSelect }: RecipeSwipePageProp
             />
           ))}
         </div>
+      </div>
+
+      {/* Theme Toggle at Bottom */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <ThemeToggle />
       </div>
     </div>
   );

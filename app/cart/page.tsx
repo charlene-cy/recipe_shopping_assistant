@@ -6,7 +6,7 @@ import { useCart } from '@/app/hooks/useCart';
 
 export default function CartPageRoute() {
   const router = useRouter();
-  const { cartItems, updateQuantity, removeItem } = useCart();
+  const { cartItems, updateQuantity, removeItem, clearCart } = useCart();
 
   return (
     <CartPage
@@ -14,6 +14,7 @@ export default function CartPageRoute() {
       onBack={() => router.push('/')}
       onUpdateQuantity={updateQuantity}
       onRemoveItem={removeItem}
+      onClearCart={clearCart}
     />
   );
 }

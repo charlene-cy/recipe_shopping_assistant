@@ -1,18 +1,38 @@
+import { useState } from 'react';
 import { CartItem } from '@/src/types';
 import { Button } from './ui/button';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Trash2 } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { AddIngredientButton } from './AddIngredientButton';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from './ui/alert-dialog';
+import { toast } from 'sonner';
 
 interface CartPageProps {
   cartItems: CartItem[];
   onBack: () => void;
   onUpdateQuantity: (productId: string, quantity: number) => void;
   onRemoveItem: (productId: string) => void;
+  onClearCart: () => void;
 }
 
-export function CartPage({ cartItems, onBack, onUpdateQuantity, onRemoveItem }: CartPageProps) {
+export function CartPage({ cartItems, onBack, onUpdateQuantity, onRemoveItem, onClearCart }: CartPageProps) {
+  const [showClearDialog, setShowClearDialog] = useState(false);
   const totalPrice = cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
+
+  const handleClearCart = () => {
+    onClearCart();
+    setShowClearDialog(false);
+    toast.success('Cart cleared');
+  };
 
   // Group items by recipe
   const itemsByRecipe = cartItems.reduce((acc, item) => {
@@ -104,14 +124,44 @@ export function CartPage({ cartItems, onBack, onUpdateQuantity, onRemoveItem }: 
           </div>
           <Button
             size="lg"
-            className="w-full bg-orange-500 hover:bg-orange-600 min-h-[44px] text-sm md:text-base lg:text-lg"
+            className="w-full bg-orange-500 hover:bg-orange-600 min-h-[44px] text-sm md:text-base lg:text-lg mb-2"
             onClick={() => window.open('https://www.sayweee.com', '_blank')}
           >
             Checkout on Weee!
             <ExternalLink className="w-4 h-4 ml-2" />
           </Button>
+
+          {/* Clear Cart Button */}
+          <button
+            onClick={() => setShowClearDialog(true)}
+            className="w-full flex items-center justify-center gap-2 text-sm text-gray-500 hover:text-red-600 py-2 transition-colors"
+          >
+            <Trash2 className="w-4 h-4" />
+            Clear All Items
+          </button>
         </div>
       )}
+
+      {/* Clear Cart Confirmation Dialog */}
+      <AlertDialog open={showClearDialog} onOpenChange={setShowClearDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Clear Cart?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to remove all items from your cart? This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleClearCart}
+              className="bg-red-600 hover:bg-red-700 focus:ring-red-600"
+            >
+              Clear All
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
