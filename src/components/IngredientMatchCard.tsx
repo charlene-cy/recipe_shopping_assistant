@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, ThumbsUp, ThumbsDown, Loader2, AlertCircle, Check, Search } from 'lucide-react';
+import { ChevronDown, ChevronUp, Loader2, AlertCircle, Check, Search, X, Undo2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { AddIngredientButton } from './AddIngredientButton';
@@ -7,9 +7,16 @@ import {
   IngredientMatchState,
   MatchedProduct,
   logFeedback,
-  type IngredientFeedback
 } from '@/src/api/matchApi';
 import { cn } from './ui/utils';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from './ui/dialog';
+
+type MatchStatus = 'ai_matched' | 'previously_matched' | 'your_choice' | 'user_choice';
 
 interface IngredientMatchCardProps {
   matchState: IngredientMatchState;
@@ -20,6 +27,10 @@ interface IngredientMatchCardProps {
   onRetry: () => void;
   onManualSearch: () => void;
   onSkip: () => void;
+  onAlternativeSelected?: (productId: string) => void; // Callback when alternative selected
+  matchStatus?: MatchStatus; // New prop to indicate match status
+  matchedTimestamp?: Date; // When this match was created
+  wasAddedToCart?: boolean; // Whether user previously added this to cart
 }
 
 export function IngredientMatchCard({
@@ -31,12 +42,15 @@ export function IngredientMatchCard({
   onRetry,
   onManualSearch,
   onSkip,
+  onAlternativeSelected,
+  matchStatus = 'ai_matched',
+  matchedTimestamp,
+  wasAddedToCart = false,
 }: IngredientMatchCardProps) {
   const [showAlternatives, setShowAlternatives] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
-  const [thumbsUpActive, setThumbsUpActive] = useState(false);
-  const [thumbsDownActive, setThumbsDownActive] = useState(false);
-  const [showFeedbackMessage, setShowFeedbackMessage] = useState(false);
+  const [showMatchDialog, setShowMatchDialog] = useState(false);
+  const [isSkipped, setIsSkipped] = useState(false);
 
   const { ingredient, state, result } = matchState;
   const bestMatch = result?.bestMatch;
@@ -48,72 +62,45 @@ export function IngredientMatchCard({
     ? alternatives.find(p => p.id === selectedProductId) || bestMatch
     : bestMatch;
 
-  const getConfidenceBadge = (confidence: number, label: 'high' | 'medium' | 'low') => {
-    const badges = {
-      high: { color: 'bg-green-100 text-green-700', text: 'Excellent match' },
-      medium: { color: 'bg-yellow-100 text-yellow-700', text: 'Good match' },
-      low: { color: 'bg-orange-100 text-orange-700', text: 'Fair match' },
-    };
+  // Determine the actual match status to display
+  const displayStatus: MatchStatus = wasAddedToCart
+    ? 'your_choice'
+    : matchStatus;
 
-    if (confidence < 40) {
-      return (
-        <span className="px-2 py-0.5 rounded-full text-xs bg-red-100 text-red-700">
-          Weak match
-        </span>
-      );
+  const getStatusConfig = () => {
+    switch (displayStatus) {
+      case 'ai_matched':
+        return {
+          title: '🤖 AI Matched',
+          showRematch: false,
+        };
+      case 'previously_matched':
+        return {
+          title: '💾 Previously Matched',
+          showRematch: true,
+        };
+      case 'your_choice':
+        return {
+          title: '✨ Your Choice',
+          showRematch: true,
+        };
+      case 'user_choice':
+        return {
+          title: '✨ Your Choice',
+          showRematch: false,
+        };
     }
-
-    return (
-      <span className={`px-2 py-0.5 rounded-full text-xs ${badges[label].color}`}>
-        {badges[label].text} • {confidence}%
-      </span>
-    );
   };
 
-  const handleThumbsUp = () => {
-    if (!bestMatch) return;
-
-    setThumbsUpActive(true);
-    setShowFeedbackMessage(true);
-    setShowAlternatives(false);
-
-    logFeedback({
-      ingredientName: ingredient.name,
-      recipeId,
-      recipeName,
-      bestMatchProductId: bestMatch.id,
-      bestMatchConfidence: bestMatch.confidence,
-      userFeedback: 'thumbs_up',
-      timestamp: new Date(),
-    });
-
-    setTimeout(() => {
-      setThumbsUpActive(false);
-      setShowFeedbackMessage(false);
-    }, 2000);
-  };
-
-  const handleThumbsDown = () => {
-    if (!bestMatch) return;
-
-    setThumbsDownActive(true);
-    setShowAlternatives(true);
-
-    logFeedback({
-      ingredientName: ingredient.name,
-      recipeId,
-      recipeName,
-      bestMatchProductId: bestMatch.id,
-      bestMatchConfidence: bestMatch.confidence,
-      userFeedback: 'thumbs_down',
-      timestamp: new Date(),
-    });
-
-    setTimeout(() => setThumbsDownActive(false), 500);
-  };
+  const statusConfig = getStatusConfig();
 
   const handleAlternativeSelect = (productId: string) => {
     setSelectedProductId(productId);
+
+    // Notify parent component about alternative selection
+    if (onAlternativeSelected) {
+      onAlternativeSelected(productId);
+    }
 
     if (bestMatch) {
       logFeedback({
@@ -144,7 +131,7 @@ export function IngredientMatchCard({
     onManualSearch();
   };
 
-  const handleSkip = () => {
+  const handleSkipIngredient = () => {
     if (bestMatch) {
       logFeedback({
         ingredientName: ingredient.name,
@@ -156,7 +143,16 @@ export function IngredientMatchCard({
         timestamp: new Date(),
       });
     }
-    onSkip();
+    setIsSkipped(true);
+    setShowAlternatives(false);
+  };
+
+  const handleUndoSkip = () => {
+    setIsSkipped(false);
+  };
+
+  const handleRematch = () => {
+    onRetry();
   };
 
   // Waiting state
@@ -207,7 +203,7 @@ export function IngredientMatchCard({
               <Button size="sm" variant="outline" onClick={handleManualSearch}>
                 Search Manually
               </Button>
-              <Button size="sm" variant="ghost" onClick={handleSkip}>
+              <Button size="sm" variant="ghost" onClick={handleSkipIngredient}>
                 Skip
               </Button>
             </div>
@@ -232,7 +228,7 @@ export function IngredientMatchCard({
                 <Search className="w-4 h-4 mr-1" />
                 Search Manually
               </Button>
-              <Button size="sm" variant="ghost" onClick={handleSkip}>
+              <Button size="sm" variant="ghost" onClick={handleSkipIngredient}>
                 Skip
               </Button>
             </div>
@@ -242,177 +238,234 @@ export function IngredientMatchCard({
     );
   }
 
+  // Skipped state (minimized with undo)
+  if (isSkipped) {
+    return (
+      <div className="bg-gray-100 border border-gray-300 rounded-2xl p-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <p className="text-sm text-gray-600">
+              <span className="font-medium text-gray-900">{ingredient.name}</span> • Skipped
+            </p>
+          </div>
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={handleUndoSkip}
+            className="flex items-center gap-1"
+          >
+            <Undo2 className="w-3.5 h-3.5" />
+            Undo
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   // Matched state
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-sm">
-      {/* Ingredient Header */}
-      <div className="mb-3">
-        <p className="text-sm text-gray-500">
-          {ingredient.name} • {ingredient.amount}
-        </p>
-      </div>
+    <>
+      <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-sm space-y-3">
+        {/* SECTION 1: Ingredient Header Row */}
+        <div className="flex items-center justify-between gap-4">
+          {/* Left: Ingredient name and amount */}
+          <p className="text-sm text-gray-600 font-medium">
+            {ingredient.name} • {ingredient.amount}
+          </p>
 
-      {/* Best Match */}
-      <div className="flex gap-4 mb-3">
-        <div className="flex-shrink-0">
-          <ImageWithFallback
-            src={selectedProduct?.image || ''}
-            alt={selectedProduct?.name || ''}
-            className="w-20 h-20 object-cover rounded-xl"
-          />
-        </div>
-
-        <div className="flex-1 min-w-0">
-          <div className="flex items-start justify-between gap-2 mb-1">
-            <h3 className="font-medium line-clamp-2">{selectedProduct?.name}</h3>
-            {selectedProduct && getConfidenceBadge(selectedProduct.confidence, selectedProduct.confidenceLabel)}
-          </div>
-          <p className="text-red-500 font-medium mb-1">${selectedProduct?.price.toFixed(2)}</p>
-          {selectedProduct?.reasoning && (
-            <p className="text-xs text-gray-500 line-clamp-2 mb-2">{selectedProduct.reasoning}</p>
-          )}
-
-          {/* Feedback Buttons */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handleThumbsUp}
-              className={cn(
-                "flex items-center gap-1 px-3 py-1.5 rounded-full border text-sm transition-colors",
-                thumbsUpActive
-                  ? "bg-green-500 text-white border-green-500"
-                  : "bg-white text-gray-600 border-gray-300 hover:bg-green-50 hover:border-green-300"
-              )}
-            >
-              <ThumbsUp className="w-3.5 h-3.5" />
-              {thumbsUpActive && <Check className="w-3.5 h-3.5" />}
-            </button>
-
-            <button
-              onClick={handleThumbsDown}
-              className={cn(
-                "flex items-center gap-1 px-3 py-1.5 rounded-full border text-sm transition-colors",
-                thumbsDownActive
-                  ? "bg-red-500 text-white border-red-500"
-                  : "bg-white text-gray-600 border-gray-300 hover:bg-red-50 hover:border-red-300"
-              )}
-            >
-              <ThumbsDown className="w-3.5 h-3.5" />
-            </button>
-
-            {showFeedbackMessage && (
-              <span className="text-sm text-green-600 animate-in fade-in">
-                ✓ Thanks for the feedback!
-              </span>
-            )}
-          </div>
-        </div>
-
-        <div className="flex-shrink-0 flex items-end">
-          <AddIngredientButton
-            quantity={cartQuantity}
-            onQuantityChange={(qty) => onQuantityChange(selectedProduct?.id || bestMatch.id, qty)}
-          />
-        </div>
-      </div>
-
-      {/* Show Alternatives Button */}
-      {hasAlternatives && (
-        <div className="border-t border-gray-200 pt-3">
-          <button
-            onClick={() => setShowAlternatives(!showAlternatives)}
-            className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-medium"
+          {/* Right: Why match button */}
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={() => setShowMatchDialog(true)}
+            className="text-xs px-2 py-1 h-auto shrink-0"
           >
-            {showAlternatives ? (
-              <>
-                <ChevronUp className="w-4 h-4" />
-                Hide alternatives
-              </>
-            ) : (
-              <>
-                <ChevronDown className="w-4 h-4" />
-                Show {alternatives.length} more {alternatives.length === 1 ? 'option' : 'options'}
-              </>
-            )}
-          </button>
-
-          {/* Alternatives List */}
-          {showAlternatives && (
-            <div className="mt-3 space-y-2 animate-in slide-in-from-top-2 duration-300">
-              {thumbsDownActive && (
-                <p className="text-sm text-gray-600 mb-2">Try these alternatives or search manually:</p>
-              )}
-
-              {/* Best match in list (if not already selected) */}
-              {!selectedProductId && (
-                <label className="flex items-start gap-3 p-3 bg-blue-50 border border-blue-200 rounded-xl cursor-pointer hover:bg-blue-100">
-                  <input
-                    type="radio"
-                    name={`alternative-${ingredient.id}`}
-                    checked={!selectedProductId}
-                    onChange={() => setSelectedProductId(null)}
-                    className="mt-1"
-                  />
-                  <div className="flex-shrink-0">
-                    <ImageWithFallback
-                      src={bestMatch.image}
-                      alt={bestMatch.name}
-                      className="w-12 h-12 object-cover rounded-lg"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-blue-600" />
-                      <p className="text-sm font-medium">Best match (current)</p>
-                    </div>
-                    <p className="text-sm text-gray-700 line-clamp-1">{bestMatch.name}</p>
-                    <p className="text-sm text-red-500 font-medium">${bestMatch.price.toFixed(2)}</p>
-                  </div>
-                </label>
-              )}
-
-              {/* Alternative products */}
-              {alternatives.map((alt) => (
-                <label
-                  key={alt.id}
-                  className="flex items-start gap-3 p-3 bg-gray-50 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-100"
-                >
-                  <input
-                    type="radio"
-                    name={`alternative-${ingredient.id}`}
-                    checked={selectedProductId === alt.id}
-                    onChange={() => handleAlternativeSelect(alt.id)}
-                    className="mt-1"
-                  />
-                  <div className="flex-shrink-0">
-                    <ImageWithFallback
-                      src={alt.image}
-                      alt={alt.name}
-                      className="w-12 h-12 object-cover rounded-lg"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 line-clamp-1">{alt.name}</p>
-                    <div className="flex items-center gap-2 mt-0.5">
-                      <p className="text-sm text-red-500 font-medium">${alt.price.toFixed(2)}</p>
-                      {getConfidenceBadge(alt.confidence, alt.confidenceLabel)}
-                    </div>
-                    <p className="text-xs text-gray-500 mt-1 line-clamp-1">{alt.reasoning}</p>
-                  </div>
-                </label>
-              ))}
-
-              {/* Manual search option */}
-              <button
-                onClick={handleManualSearch}
-                className="w-full flex items-center justify-center gap-2 p-3 border-2 border-dashed border-gray-300 rounded-xl text-sm text-gray-600 hover:border-gray-400 hover:text-gray-700"
-              >
-                <Search className="w-4 h-4" />
-                Search all products manually
-              </button>
-            </div>
-          )}
+            Why match?
+          </Button>
         </div>
-      )}
-    </div>
+
+        {/* SECTION 2: Product Information + Add to Cart */}
+        <div className="flex gap-3 items-start">
+          {/* Part 1: Product Image */}
+          <div className="flex-shrink-0">
+            <ImageWithFallback
+              src={selectedProduct?.image || ''}
+              alt={selectedProduct?.name || ''}
+              className="w-20 h-20 object-cover rounded-xl"
+            />
+          </div>
+
+          {/* Part 2: Product Details (flexible width) */}
+          <div className="flex-1 min-w-0 flex flex-col justify-between">
+            {/* Product name - can wrap to 2 lines max */}
+            <h3 className="font-medium text-sm line-clamp-2 mb-1 pr-2">
+              {selectedProduct?.name}
+            </h3>
+
+            {/* Price and Add Button Row */}
+            <div className="flex items-center justify-between gap-2">
+              {/* Price */}
+              <p className="text-red-500 font-semibold text-base">
+                ${selectedProduct?.price.toFixed(2)}
+              </p>
+
+              {/* Part 3: Add to Cart Button - Fixed position, reserved space */}
+              <div className="flex-shrink-0">
+                <AddIngredientButton
+                  quantity={cartQuantity}
+                  onQuantityChange={(qty) => onQuantityChange(selectedProduct?.id || bestMatch.id, qty)}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* SECTION 3: Alternatives Toggle */}
+        {hasAlternatives && (
+          <div className="border-t border-gray-200 pt-3">
+            <button
+              onClick={() => setShowAlternatives(!showAlternatives)}
+              className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-medium w-full"
+            >
+              {showAlternatives ? (
+                <>
+                  <ChevronUp className="w-4 h-4" />
+                  Hide alternatives
+                </>
+              ) : (
+                <>
+                  <ChevronDown className="w-4 h-4" />
+                  See {alternatives.length} {alternatives.length === 1 ? 'alternative' : 'alternatives'}
+                </>
+              )}
+            </button>
+
+            {/* Alternatives List */}
+            {showAlternatives && (
+              <div className="mt-3 space-y-2 animate-in slide-in-from-top-2 duration-300">
+                {/* Best match in list (if not already selected) */}
+                {!selectedProductId && (
+                  <label className="flex items-start gap-3 p-3 bg-blue-50 border border-blue-200 rounded-xl cursor-pointer hover:bg-blue-100">
+                    <input
+                      type="radio"
+                      name={`alternative-${ingredient.id}`}
+                      checked={!selectedProductId}
+                      onChange={() => setSelectedProductId(null)}
+                      className="mt-1"
+                    />
+                    <div className="flex-shrink-0">
+                      <ImageWithFallback
+                        src={bestMatch.image}
+                        alt={bestMatch.name}
+                        className="w-12 h-12 object-cover rounded-lg"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-blue-600" />
+                        <p className="text-sm font-medium">Best match (current)</p>
+                      </div>
+                      <p className="text-sm text-gray-700 line-clamp-1">{bestMatch.name}</p>
+                      <p className="text-sm text-red-500 font-medium">${bestMatch.price.toFixed(2)}</p>
+                    </div>
+                  </label>
+                )}
+
+                {/* Alternative products */}
+                {alternatives.map((alt) => (
+                  <label
+                    key={alt.id}
+                    className="flex items-start gap-3 p-3 bg-gray-50 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-100"
+                  >
+                    <input
+                      type="radio"
+                      name={`alternative-${ingredient.id}`}
+                      checked={selectedProductId === alt.id}
+                      onChange={() => handleAlternativeSelect(alt.id)}
+                      className="mt-1"
+                    />
+                    <div className="flex-shrink-0">
+                      <ImageWithFallback
+                        src={alt.image}
+                        alt={alt.name}
+                        className="w-12 h-12 object-cover rounded-lg"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-gray-900 line-clamp-1">{alt.name}</p>
+                      <p className="text-sm text-red-500 font-medium mt-0.5">${alt.price.toFixed(2)}</p>
+                    </div>
+                  </label>
+                ))}
+
+                {/* Manual search option */}
+                <button
+                  onClick={handleManualSearch}
+                  className="w-full flex items-center justify-center gap-2 p-3 border-2 border-dashed border-gray-300 rounded-xl text-sm text-gray-600 hover:border-gray-400 hover:text-gray-700"
+                >
+                  <Search className="w-4 h-4" />
+                  Search all products manually
+                </button>
+
+                {/* Skip ingredient button */}
+                <button
+                  onClick={handleSkipIngredient}
+                  className="w-full flex items-center justify-center gap-2 p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm text-gray-700 hover:bg-gray-100 hover:border-gray-400 font-medium"
+                >
+                  🚫 None of these work? Skip this ingredient
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Why This Match Dialog */}
+      <Dialog open={showMatchDialog} onOpenChange={setShowMatchDialog}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Why This Match?</DialogTitle>
+          </DialogHeader>
+
+          <div className="space-y-4">
+            {/* Product Image */}
+            <div className="flex justify-center">
+              <ImageWithFallback
+                src={selectedProduct?.image || ''}
+                alt={selectedProduct?.name || ''}
+                className="w-40 h-40 object-cover rounded-xl"
+              />
+            </div>
+
+            {/* Product Name */}
+            <div>
+              <h3 className="font-semibold text-lg text-center">{selectedProduct?.name}</h3>
+            </div>
+
+            {/* Match Status Badge */}
+            <div className="flex justify-center">
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700">
+                {statusConfig.title}
+              </span>
+            </div>
+
+            {/* Explanation */}
+            {selectedProduct?.reasoning && (
+              <div>
+                <h4 className="font-semibold text-sm text-gray-700 mb-2">Why this product?</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">{selectedProduct.reasoning}</p>
+              </div>
+            )}
+
+            {/* Matched timestamp if available */}
+            {matchedTimestamp && (
+              <p className="text-xs text-gray-500 text-center">
+                Matched on {matchedTimestamp.toLocaleDateString()} at {matchedTimestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+              </p>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
