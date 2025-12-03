@@ -151,7 +151,7 @@ export function RecipeSwipePage({ recipes, onRecipeSelect }: RecipeSwipePageProp
 
   if (currentIndex >= recipes.length) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-pink-50 dark:from-gray-900 dark:to-slate-900 p-4 md:p-6 lg:p-8 relative">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-white to-white dark:from-gray-900 dark:to-slate-900 p-4 md:p-6 lg:p-8 relative">
         <div className="text-center">
           <p className="text-gray-600 dark:text-gray-300 mb-4">No more recipes to explore!</p>
           <Button onClick={() => setCurrentIndex(0)}>
@@ -168,12 +168,12 @@ export function RecipeSwipePage({ recipes, onRecipeSelect }: RecipeSwipePageProp
   return (
     <>
       <div
-        className="min-h-screen bg-gradient-to-br from-orange-50 to-pink-50 dark:from-gray-900 dark:to-slate-900 relative overflow-hidden transition-colors"
+        className="min-h-screen bg-gradient-to-br from-white via-white to-white dark:from-gray-900 dark:to-slate-900 relative overflow-hidden transition-colors"
         onClick={handleBackgroundClick}
       >
         {/* Header */}
-        <div className="absolute top-0 left-0 right-0 z-10 p-4 md:p-6 lg:p-8">
-          <h1 className="text-center text-xl md:text-3xl lg:text-4xl dark:text-white">
+        <div className="absolute top-0 left-0 right-0 z-10 px-6 py-8 md:px-8 md:py-10">
+          <h1 className="text-left text-3xl md:text-4xl lg:text-5xl font-normal text-gray-900 dark:text-white leading-tight">
             Hi{' '}
             <span
               onClick={(e) => {
@@ -191,8 +191,8 @@ export function RecipeSwipePage({ recipes, onRecipeSelect }: RecipeSwipePageProp
         </div>
 
         {/* Card Stack */}
-        <div className="absolute inset-0 flex items-center justify-center p-4 pt-20 pb-24 md:p-6 md:pt-24 md:pb-32 lg:p-8 lg:pt-28 lg:pb-36">
-          <div className="relative w-full max-w-md md:max-w-md lg:max-w-lg h-full">
+        <div className="absolute inset-0 flex items-center justify-center px-6 pt-32 pb-28 md:px-8 md:pt-36 md:pb-32">
+          <div className="relative w-full max-w-md md:max-w-lg h-full">
             {recipes.slice(currentIndex, currentIndex + 2).map((recipe, index) => (
               <RecipeCard
                 key={recipe.id}

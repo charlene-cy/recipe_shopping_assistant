@@ -15,7 +15,7 @@ export default function HomePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-pink-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-white to-white">
         <p className="text-gray-600">Loading recipes...</p>
       </div>
     );
@@ -23,7 +23,7 @@ export default function HomePage() {
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-pink-50 p-4">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-white to-white p-4">
         <div className="max-w-md text-center space-y-2">
           <p className="text-gray-700 font-medium">Unable to load recipes.</p>
           <p className="text-sm text-gray-500">{error}</p>
@@ -34,7 +34,7 @@ export default function HomePage() {
 
   if (!recipes.length) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-pink-50 p-4">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-white to-white p-4">
         <p className="text-gray-600">No recipes available yet. Please check back soon.</p>
       </div>
     );
