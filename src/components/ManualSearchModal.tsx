@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Search, X } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from './ui/sheet';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -52,24 +52,23 @@ export function ManualSearchModal({
     onClose();
   };
 
+  // Handle sheet state changes - prevent closing parent modal
+  const handleOpenChange = (open: boolean) => {
+    if (!open) {
+      handleCancel();
+    }
+  };
+
   return (
-    <Sheet open={isOpen} onOpenChange={handleCancel}>
+    <Sheet open={isOpen} onOpenChange={handleOpenChange}>
       <SheetContent side="bottom" className="h-[85vh] rounded-t-3xl p-0">
         <div className="flex flex-col h-full">
           <SheetHeader className="p-6 pb-4 border-b">
-            <div className="flex items-start justify-between">
-              <div>
-                <SheetTitle>Search Products Manually</SheetTitle>
-                <p className="text-sm text-gray-500 mt-1">
-                  Finding: {ingredient.name} • {ingredient.amount}
-                </p>
-              </div>
-              <button
-                onClick={handleCancel}
-                className="text-gray-400 hover:text-gray-600"
-              >
-                <X className="w-5 h-5" />
-              </button>
+            <div>
+              <SheetTitle>Search Products Manually</SheetTitle>
+              <p className="text-sm text-gray-500 mt-1">
+                Finding: {ingredient.name} • {ingredient.amount}
+              </p>
             </div>
 
             {/* Search Input */}

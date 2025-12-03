@@ -1,9 +1,18 @@
 import { Recipe, WeeeProduct } from '@/src/types';
-import { Star, ArrowLeft, ShoppingCart } from 'lucide-react';
+import { ArrowLeft, ShoppingCart } from 'lucide-react';
 import { Button } from './ui/button';
 import { useState } from 'react';
 import { IngredientModal } from './IngredientModal';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+
+// Difficulty level configuration
+const difficultyLevels = [
+  { label: '🍃 Super Easy', color: '#48BB78' },
+  { label: '😊 Easy', color: '#4299E1' },
+  { label: '👨‍🍳 Medium', color: '#F6AD55' },
+  { label: '🔥 Challenging', color: '#FF6B35' },
+  { label: '💪 Master Level', color: '#990000' },
+];
 
 interface RecipeDetailPageProps {
   recipe: Recipe;
@@ -26,8 +35,7 @@ export function RecipeDetailPage({ recipe, products, onBack, cartQuantities, onQ
           alt={recipe.name}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-        
+
         {/* Back Button */}
         <Button
           variant="ghost"
@@ -37,26 +45,29 @@ export function RecipeDetailPage({ recipe, products, onBack, cartQuantities, onQ
         >
           <ArrowLeft className="w-5 h-5" />
         </Button>
+      </div>
 
-        {/* Title Overlay */}
-        <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
-          <h1 className="text-white mb-2 text-2xl md:text-3xl lg:text-4xl">{recipe.name}</h1>
-          <div className="flex items-center gap-1 mb-2">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star
-                key={i}
-                className={`w-4 h-4 ${
-                  i < recipe.difficulty
-                    ? 'fill-yellow-400 text-yellow-400'
-                    : 'text-gray-300'
-                }`}
-              />
-            ))}
-          </div>
-          <div className="flex gap-4 text-white/90">
-            <span>⏱️ {recipe.cookTime}</span>
-            <span>🍽️ {recipe.servings} servings</span>
-          </div>
+      {/* Recipe Header Card */}
+      <div className="bg-white px-4 py-5 md:px-6 md:py-6 lg:px-8 lg:py-7 border-b border-gray-200">
+        <h1 className="text-gray-900 mb-3 text-2xl md:text-3xl lg:text-4xl font-semibold">{recipe.name}</h1>
+
+        {/* Difficulty Badge */}
+        <div className="mb-3">
+          <span
+            className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium"
+            style={{
+              backgroundColor: `${difficultyLevels[recipe.difficulty - 1]?.color}15`,
+              color: difficultyLevels[recipe.difficulty - 1]?.color
+            }}
+          >
+            {difficultyLevels[recipe.difficulty - 1]?.label}
+          </span>
+        </div>
+
+        {/* Recipe Metadata */}
+        <div className="flex gap-4 text-gray-600">
+          <span>⏱️ {recipe.cookTime}</span>
+          <span>🍽️ {recipe.servings} servings</span>
         </div>
       </div>
 
@@ -103,7 +114,7 @@ export function RecipeDetailPage({ recipe, products, onBack, cartQuantities, onQ
       </div>
 
       {/* Sticky Bottom Button */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8 bg-gradient-to-t from-white via-white to-transparent">
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 md:p-6 lg:p-8 shadow-lg">
         <Button
           size="lg"
           className="w-full bg-orange-500 hover:bg-orange-600 min-h-[44px] text-base md:text-lg"

@@ -424,22 +424,41 @@ export function IngredientMatchCard({
       <Dialog open={showMatchDialog} onOpenChange={setShowMatchDialog}>
         <DialogContent className="max-w-md">
           <DialogHeader>
-            <DialogTitle>Why This Match?</DialogTitle>
+            <DialogTitle>Why We Matched This Product</DialogTitle>
           </DialogHeader>
 
-          <div className="space-y-4">
+          <div className="space-y-5">
+            {/* Match Flow: Ingredient → Product */}
+            <div className="bg-gradient-to-r from-orange-50 to-blue-50 rounded-xl p-4">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex-1 text-center">
+                  <p className="text-xs text-gray-500 mb-1">You need</p>
+                  <p className="font-semibold text-gray-900">{ingredient.name}</p>
+                  <p className="text-xs text-gray-500 mt-1">{ingredient.amount}</p>
+                </div>
+
+                <div className="flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center">
+                    <span className="text-lg">→</span>
+                  </div>
+                </div>
+
+                <div className="flex-1 text-center">
+                  <p className="text-xs text-gray-500 mb-1">We suggest</p>
+                  <p className="font-semibold text-blue-600 line-clamp-2 text-sm">
+                    {selectedProduct?.name}
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Product Image */}
             <div className="flex justify-center">
               <ImageWithFallback
                 src={selectedProduct?.image || ''}
                 alt={selectedProduct?.name || ''}
-                className="w-40 h-40 object-cover rounded-xl"
+                className="w-32 h-32 object-cover rounded-xl shadow-md"
               />
-            </div>
-
-            {/* Product Name */}
-            <div>
-              <h3 className="font-semibold text-lg text-center">{selectedProduct?.name}</h3>
             </div>
 
             {/* Match Status Badge */}
@@ -449,19 +468,28 @@ export function IngredientMatchCard({
               </span>
             </div>
 
-            {/* Explanation */}
+            {/* Explanation Section */}
             {selectedProduct?.reasoning && (
-              <div>
-                <h4 className="font-semibold text-sm text-gray-700 mb-2">Why this product?</h4>
-                <p className="text-sm text-gray-600 leading-relaxed">{selectedProduct.reasoning}</p>
+              <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
+                <div className="flex items-start gap-2">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <span className="text-lg">💡</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-sm text-blue-900 mb-2">Why this match?</h4>
+                    <p className="text-sm text-blue-800 leading-relaxed">{selectedProduct.reasoning}</p>
+                  </div>
+                </div>
               </div>
             )}
 
             {/* Matched timestamp if available */}
             {matchedTimestamp && (
-              <p className="text-xs text-gray-500 text-center">
-                Matched on {matchedTimestamp.toLocaleDateString()} at {matchedTimestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-              </p>
+              <div className="pt-2 border-t border-gray-200">
+                <p className="text-xs text-gray-500 text-center">
+                  Originally matched on {matchedTimestamp.toLocaleDateString()}
+                </p>
+              </div>
             )}
           </div>
         </DialogContent>
