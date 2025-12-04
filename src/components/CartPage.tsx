@@ -26,6 +26,7 @@ interface CartPageProps {
 
 export function CartPage({ cartItems, onBack, onUpdateQuantity, onRemoveItem, onClearCart }: CartPageProps) {
   const [showClearDialog, setShowClearDialog] = useState(false);
+  const [showWeeeDialog, setShowWeeeDialog] = useState(false);
   const totalPrice = cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
 
   const handleClearCart = () => {
@@ -127,7 +128,7 @@ export function CartPage({ cartItems, onBack, onUpdateQuantity, onRemoveItem, on
           <Button
             size="lg"
             className="w-full bg-orange-500 hover:bg-orange-600 min-h-[44px] text-sm md:text-base lg:text-lg mb-2"
-            onClick={() => window.open('https://www.sayweee.com', '_blank')}
+            onClick={() => setShowWeeeDialog(true)}
           >
             Checkout on Weee!
             <ExternalLink className="w-4 h-4 ml-2" />
@@ -160,6 +161,35 @@ export function CartPage({ cartItems, onBack, onUpdateQuantity, onRemoveItem, on
               className="bg-red-600 hover:bg-red-700 focus:ring-red-600"
             >
               Clear All
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Weee Checkout Info Dialog */}
+      <AlertDialog open={showWeeeDialog} onOpenChange={setShowWeeeDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-xl">Continue to Weee!</AlertDialogTitle>
+            <AlertDialogDescription className="pt-2 space-y-4">
+              <p className="text-base text-gray-700">
+                Your shopping list is ready! Search for them on Weee!
+              </p>
+              <p className="text-sm text-gray-500 italic">
+                Auto-cart feature: Coming soon!
+              </p>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => {
+                window.open('https://www.sayweee.com', '_blank');
+                setShowWeeeDialog(false);
+              }}
+              className="bg-orange-500 hover:bg-orange-600 focus:ring-orange-600"
+            >
+              Open Weee!
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
