@@ -172,8 +172,8 @@ export function RecipeSwipePage({ recipes, onRecipeSelect }: RecipeSwipePageProp
         onClick={handleBackgroundClick}
       >
         {/* Header */}
-        <div className="absolute top-0 left-0 right-0 z-10 px-6 py-8 md:px-8 md:py-10">
-          <h1 className="text-left text-3xl md:text-4xl lg:text-5xl font-normal text-gray-900 dark:text-white leading-tight">
+        <div className="absolute top-0 left-0 right-0 z-10 px-6 py-6 md:px-8 md:py-8">
+          <h1 className="text-center text-xl md:text-2xl font-normal text-gray-900 dark:text-white leading-tight max-w-xs mx-auto">
             Hi{' '}
             <span
               onClick={(e) => {
@@ -186,13 +186,13 @@ export function RecipeSwipePage({ recipes, onRecipeSelect }: RecipeSwipePageProp
             >
               Charlene
             </span>
-            ! Ready to cook?
+            !<br />Ready to cook?
           </h1>
         </div>
 
         {/* Card Stack */}
-        <div className="absolute inset-0 flex items-center justify-center px-6 pt-32 pb-28 md:px-8 md:pt-36 md:pb-32">
-          <div className="relative w-full max-w-md md:max-w-lg h-full">
+        <div className="absolute inset-0 flex items-center justify-center px-5 pt-20 pb-4 md:px-6 md:pt-36 md:pb-24">
+          <div className="relative w-full max-w-lg md:max-w-xl lg:max-w-2xl h-full">
             {recipes.slice(currentIndex, currentIndex + 2).map((recipe, index) => (
               <RecipeCard
                 key={recipe.id}

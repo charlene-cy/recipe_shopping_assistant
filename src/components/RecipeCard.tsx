@@ -42,8 +42,8 @@ export function RecipeCard({ recipe, onSwipeRight, onSwipeLeft, style }: RecipeC
       <div className="rounded-3xl overflow-hidden h-full flex flex-col bg-[#e4dec6]" style={{
         boxShadow: 'var(--shadow-2xl)'
       }}>
-        {/* Image Section - 60% height */}
-        <div className="relative" style={{ height: '60%' }}>
+        {/* Image Section - 65% height */}
+        <div className="relative" style={{ height: '65%' }}>
           <ImageWithFallback
             src={recipe.image}
             alt={recipe.name}
@@ -57,38 +57,44 @@ export function RecipeCard({ recipe, onSwipeRight, onSwipeLeft, style }: RecipeC
           </div>
         </div>
 
-        {/* Content Section - 40% height */}
-        <div className="px-6 py-6 flex-1 flex flex-col justify-between" style={{ minHeight: '40%' }}>
-          <div className="space-y-3">
-            <h2 className="uppercase font-bold tracking-wide" style={{
+        {/* Content Section - 35% height */}
+        <div className="px-6 pt-5 pb-4 md:px-8 md:pt-6 md:pb-5 flex-1 flex flex-col justify-between" style={{ minHeight: '35%' }}>
+          <div className="space-y-1">
+            <div className="flex items-start mb-2">
+              <span
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-medium text-xs bg-white/80 backdrop-blur-sm shadow-sm"
+                style={{
+                  color: difficultyLevel.color,
+                  border: `1.5px solid ${difficultyLevel.color}20`
+                }}
+              >
+                {difficultyLevel.label}
+              </span>
+            </div>
+
+            <h2 className="font-semibold tracking-wide line-clamp-2" style={{
               fontFamily: 'var(--font-serif)',
               fontSize: 'clamp(1.5rem, 4vw, 1.75rem)',
               color: '#C65D2E',
               lineHeight: '1.2',
-              letterSpacing: '0.02em'
+              letterSpacing: '0.02em',
+              minHeight: 'calc(clamp(1.5rem, 4vw, 1.75rem) * 1.2 * 2)'
             }}>
               {recipe.name}
             </h2>
-
-            <div className="flex items-center gap-2">
-              <span className="text-2xl">👌</span>
-              <span className="text-primary font-semibold text-base">
-                {difficultyLevel.label}
-              </span>
-            </div>
           </div>
 
-          <div className="flex flex-col gap-3 mt-4">
+          <div className="flex flex-col gap-3 mt-5 md:mt-6">
             <Button
               onClick={onSwipeRight}
-              className="w-full bg-[#C65D2E] hover:bg-[#B54D1E] text-white font-medium py-6 text-base rounded-lg transition-colors"
+              className="w-full bg-[#C65D2E] hover:bg-[#B54D1E] text-white font-medium py-5 md:py-6 text-base md:text-lg rounded-lg transition-colors"
               style={{
                 boxShadow: 'var(--shadow-md)'
               }}
             >
               View Recipe
             </Button>
-            <p className="text-gray-600 text-center text-sm font-normal">
+            <p className="text-gray-600 text-center text-sm font-normal pb-2">
               Swipe right to view • Swipe left to skip
             </p>
           </div>

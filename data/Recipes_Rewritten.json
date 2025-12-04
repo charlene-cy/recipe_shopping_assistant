@@ -1,0 +1,1948 @@
+[
+  {
+    "id": 1,
+    "name": "Beef with Scallions",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/438849/d41ec9e853ac65bf.jpg",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 20,
+    "servings": 3,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Beef slices",
+            "amount": "300",
+            "unit": "g"
+          },
+          {
+            "name": "Scallions",
+            "amount": "3",
+            "unit": "stalks"
+          },
+          {
+            "name": "Ginger slices",
+            "amount": "3",
+            "unit": "slices"
+          },
+          {
+            "name": "Garlic",
+            "amount": "3",
+            "unit": "cloves"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Rice wine",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Vegetarian oyster sauce",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Cornstarch",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sugar",
+            "amount": "1",
+            "unit": "tsp"
+          },
+          {
+            "name": "Cooking oil",
+            "amount": "2",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Cut scallions into sections, slice ginger and garlic"
+    ],
+    "cookingSteps": [
+      "Marinate beef with rice wine, vegetarian oyster sauce, and cornstarch for 30 minutes",
+      "Heat oil in a pan over medium heat, lay beef slices flat",
+      "Pan-fry for 3 minutes until 70% cooked, remove",
+      "In the same pan, sauté ginger and garlic, add white parts of scallions",
+      "Return beef to pan, add soy sauce and sugar, stir-fry quickly",
+      "Add green parts of scallions and toss"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Braised Napa Cabbage with Spicy Bean Paste",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/450542/3a4524d0c3b7f440.jpg",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 25,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Napa cabbage",
+            "amount": "600",
+            "unit": "g"
+          },
+          {
+            "name": "Garlic",
+            "amount": "4",
+            "unit": "cloves"
+          },
+          {
+            "name": "Ginger slices",
+            "amount": "3",
+            "unit": "slices"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Spicy bean paste",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Cooking oil",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Water",
+            "amount": "100",
+            "unit": "ml"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sugar",
+            "amount": "1",
+            "unit": "tsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Cut cabbage into large pieces, slice garlic"
+    ],
+    "cookingSteps": [
+      "Heat oil and sauté garlic and ginger",
+      "Add spicy bean paste and stir until fragrant",
+      "Add cabbage and stir-fry until slightly softened",
+      "Add water, soy sauce, and sugar",
+      "Cover and braise on low heat for 15 minutes",
+      "Reduce sauce and serve"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Sichuan-Style King Oyster Mushrooms",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/481367/1de91a70512c9e5c.jpg",
+    "cuisine": "Sichuan",
+    "difficulty": "Easy",
+    "cookTime": 15,
+    "servings": 3,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "King oyster mushrooms",
+            "amount": "300",
+            "unit": "g"
+          },
+          {
+            "name": "Garlic",
+            "amount": "3",
+            "unit": "cloves"
+          },
+          {
+            "name": "Scallions",
+            "amount": "2",
+            "unit": "stalks"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Ginger paste",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sichuan peppercorn oil",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Vinegar",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sugar",
+            "amount": "1",
+            "unit": "tsp"
+          },
+          {
+            "name": "Chili oil",
+            "amount": "1",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Cut mushrooms into strips and blanch, drain well",
+      "Mince garlic and chop scallions"
+    ],
+    "cookingSteps": [
+      "Mix sauce: ginger paste, soy sauce, vinegar, sugar, peppercorn oil, chili oil",
+      "Arrange mushrooms on a plate",
+      "Pour sauce over mushrooms",
+      "Garnish with garlic and scallions"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Taiwanese Minced Pork with Shiitake and Pickled Cucumber",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/482432/4b344863105b9162.jpg",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 40,
+    "servings": 6,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Ground pork",
+            "amount": "500",
+            "unit": "g"
+          },
+          {
+            "name": "Dried shiitake mushrooms",
+            "amount": "8",
+            "unit": "pieces"
+          },
+          {
+            "name": "Pickled cucumber",
+            "amount": "100",
+            "unit": "g"
+          },
+          {
+            "name": "Shallots",
+            "amount": "5",
+            "unit": "pieces"
+          },
+          {
+            "name": "Garlic",
+            "amount": "5",
+            "unit": "cloves"
+          },
+          {
+            "name": "Five-spice powder",
+            "amount": "1",
+            "unit": "tsp"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Soy sauce",
+            "amount": "3",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Rice wine",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Rock sugar",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Water",
+            "amount": "500",
+            "unit": "ml"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Soak mushrooms until soft, dice. Mince pickled cucumber",
+      "Mince shallots and garlic"
+    ],
+    "cookingSteps": [
+      "Sauté shallots and garlic until golden",
+      "Add ground pork and cook until color changes",
+      "Add mushrooms and pickled cucumber",
+      "Pour in soy sauce, rice wine, five-spice powder, rock sugar",
+      "Add water and simmer on low heat for 30 minutes",
+      "Cook until sauce thickens"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Chicken Soup with Pickled Green Chilies",
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=1200",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 45,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Chicken thighs",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Ginger slices",
+            "amount": "5",
+            "unit": "slices"
+          },
+          {
+            "name": "Garlic",
+            "amount": "4",
+            "unit": "cloves"
+          },
+          {
+            "name": "Salt",
+            "amount": "to taste",
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Pickled green chilies",
+            "amount": "6",
+            "unit": "pieces"
+          },
+          {
+            "name": "Pickled chili brine",
+            "amount": "100",
+            "unit": "ml"
+          },
+          {
+            "name": "Water",
+            "amount": "1200",
+            "unit": "ml"
+          },
+          {
+            "name": "Rice wine",
+            "amount": "2",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Cut chicken into pieces and blanch to remove impurities"
+    ],
+    "cookingSteps": [
+      "Bring water to boil with chicken, ginger, and garlic",
+      "After boiling, reduce to low heat",
+      "Add pickled chilies and brine",
+      "Add rice wine",
+      "Simmer on low heat for 30 minutes",
+      "Season with salt"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Braised Beef Brisket",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/472098/a80da7ee06e3b44a.jpg",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Medium",
+    "cookTime": 90,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Beef brisket",
+            "amount": "800",
+            "unit": "g"
+          },
+          {
+            "name": "Onion",
+            "amount": "1",
+            "unit": "piece"
+          },
+          {
+            "name": "Scallions",
+            "amount": "2",
+            "unit": "stalks"
+          },
+          {
+            "name": "Ginger slices",
+            "amount": "5",
+            "unit": "slices"
+          },
+          {
+            "name": "Garlic",
+            "amount": "5",
+            "unit": "cloves"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Star anise",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Spicy bean paste",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "3",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Rice wine",
+            "amount": "100",
+            "unit": "ml"
+          },
+          {
+            "name": "Rock sugar",
+            "amount": "1",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Cut beef into chunks and blanch with cold water",
+      "Cut onion into chunks, prepare scallions, ginger, and garlic"
+    ],
+    "cookingSteps": [
+      "Heat oil and sauté scallions, ginger, garlic until slightly charred",
+      "Add spicy bean paste and stir until fragrant",
+      "Add onion and cook until soft",
+      "Add beef chunks and stir-fry",
+      "Add soy sauce, rice wine, rock sugar, and reserved broth",
+      "Simmer on low heat for 60-90 minutes until tender",
+      "Add star anise and braise for 5 more minutes"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Three-Cup Chicken",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/457313/6dd111b09246f51a.jpg",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 35,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Chicken thighs",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Thai basil",
+            "amount": "1",
+            "unit": "bunch"
+          },
+          {
+            "name": "Garlic",
+            "amount": "10",
+            "unit": "cloves"
+          },
+          {
+            "name": "Ginger slices",
+            "amount": "5",
+            "unit": "slices"
+          },
+          {
+            "name": "Scallions",
+            "amount": "2",
+            "unit": "stalks"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Chili peppers",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Sesame oil",
+            "amount": "3",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Rice wine",
+            "amount": "100",
+            "unit": "ml"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "3",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Vegetarian oyster sauce",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sugar",
+            "amount": "1",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Cut chicken into pieces, peel garlic, slice ginger",
+      "Cut scallions into sections, slice chilies"
+    ],
+    "cookingSteps": [
+      "Heat sesame oil in pan, sauté ginger and garlic on low heat",
+      "Add chicken, stir-fry on high heat until surface turns white",
+      "Add soy sauce to sear",
+      "Add rice wine, sugar, and vegetarian oyster sauce in sequence",
+      "Add white parts of scallions and chilies, add 1 cup of water",
+      "Simmer on low heat for 25 minutes",
+      "Turn to high heat to reduce sauce, add green scallions and Thai basil",
+      "Drizzle sesame oil before serving"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Savory Tangyuan (Glutinous Rice Balls)",
+    "image": "https://images.unsplash.com/photo-1569394673537-9c60bc4fe7d8?w=1200",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 25,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Small tangyuan",
+            "amount": "300",
+            "unit": "g"
+          },
+          {
+            "name": "Ground pork",
+            "amount": "150",
+            "unit": "g"
+          },
+          {
+            "name": "Shiitake mushrooms",
+            "amount": "5",
+            "unit": "pieces"
+          },
+          {
+            "name": "Dried shrimp",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Shallots",
+            "amount": "3",
+            "unit": "pieces"
+          },
+          {
+            "name": "Celery",
+            "amount": "50",
+            "unit": "g"
+          },
+          {
+            "name": "Fried shallots",
+            "amount": "2",
+            "unit": "tbsp"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Stock",
+            "amount": "1000",
+            "unit": "ml"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "White pepper",
+            "amount": "to taste",
+            "unit": ""
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Soak mushrooms and dried shrimp until soft",
+      "Dice mushrooms and mince shallots and celery"
+    ],
+    "cookingSteps": [
+      "Heat oil and sauté shallots, mushrooms, and dried shrimp",
+      "Add ground pork and cook until color changes",
+      "Pour in stock and bring to boil",
+      "Season with soy sauce",
+      "Add tangyuan and cook until they float",
+      "Add celery and white pepper",
+      "Serve in bowls and top with fried shallots"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Sichuan Poached Chicken with Chili Oil",
+    "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=1200",
+    "cuisine": "Sichuan",
+    "difficulty": "Easy",
+    "cookTime": 30,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Chicken breast",
+            "amount": "400",
+            "unit": "g"
+          },
+          {
+            "name": "Garlic",
+            "amount": "5",
+            "unit": "cloves"
+          },
+          {
+            "name": "Ginger slices",
+            "amount": "3",
+            "unit": "slices"
+          },
+          {
+            "name": "Scallions",
+            "amount": "2",
+            "unit": "stalks"
+          },
+          {
+            "name": "Cilantro",
+            "amount": "to taste",
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Sichuan peppercorns",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Chili oil",
+            "amount": "3",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "3",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Vinegar",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sugar",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sesame seeds",
+            "amount": "1",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Mince garlic and chop scallions"
+    ],
+    "cookingSteps": [
+      "Poach chicken breast with ginger and scallions until cooked",
+      "Remove and let cool, then shred into strips",
+      "Toast peppercorns until fragrant and crush",
+      "Mix sauce: soy sauce, vinegar, sugar, chili oil, crushed peppercorns",
+      "Arrange chicken on a plate and pour sauce over",
+      "Top with minced garlic, scallions, cilantro, and sesame seeds"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Sesame Oil Noodles with Ginger and Egg",
+    "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=1200",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 20,
+    "servings": 2,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Thin wheat noodles",
+            "amount": "200",
+            "unit": "g"
+          },
+          {
+            "name": "Eggs",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Old ginger",
+            "amount": "50",
+            "unit": "g"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Sesame oil",
+            "amount": "3",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Rice wine",
+            "amount": "100",
+            "unit": "ml"
+          },
+          {
+            "name": "Water",
+            "amount": "500",
+            "unit": "ml"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sugar",
+            "amount": "1",
+            "unit": "tsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Slice old ginger"
+    ],
+    "cookingSteps": [
+      "Heat sesame oil in pan, sauté ginger slices on low heat until golden",
+      "Pour in rice wine",
+      "Add water, soy sauce, and sugar, bring to boil",
+      "Crack eggs into soup and cook as poached eggs",
+      "Cook noodles in a separate pot until done",
+      "Place noodles in bowls",
+      "Pour ginger soup and poached eggs over noodles"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Stir-Fried Sweet Potato Leaves with Chili",
+    "image": "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=1200",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 10,
+    "servings": 3,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Sweet potato leaves",
+            "amount": "300",
+            "unit": "g"
+          },
+          {
+            "name": "Garlic",
+            "amount": "5",
+            "unit": "cloves"
+          },
+          {
+            "name": "Salt",
+            "amount": "to taste",
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Chili peppers",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Cooking oil",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Rice wine",
+            "amount": "1",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Wash and drain sweet potato leaves",
+      "Slice garlic and cut chilies into sections"
+    ],
+    "cookingSteps": [
+      "Heat wok with oil on high heat",
+      "Sauté garlic and chilies until fragrant",
+      "Add sweet potato leaves and stir-fry quickly",
+      "Add rice wine and salt",
+      "Stir-fry until leaves are wilted"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Basil Pumpkin",
+    "image": "https://images.unsplash.com/photo-1570586437263-ab629fccc818?w=1200",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 20,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Pumpkin",
+            "amount": "500",
+            "unit": "g"
+          },
+          {
+            "name": "Thai basil",
+            "amount": "1",
+            "unit": "bunch"
+          },
+          {
+            "name": "Garlic",
+            "amount": "5",
+            "unit": "cloves"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Chili peppers",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sugar",
+            "amount": "1",
+            "unit": "tsp"
+          },
+          {
+            "name": "Cooking oil",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Water",
+            "amount": "100",
+            "unit": "ml"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Cut pumpkin into chunks, slice garlic",
+      "Cut chilies into sections"
+    ],
+    "cookingSteps": [
+      "Heat oil and sauté garlic and chilies",
+      "Add pumpkin chunks and stir-fry",
+      "Add water, soy sauce, and sugar",
+      "Cover and braise for 10 minutes until pumpkin is soft",
+      "Uncover and reduce sauce",
+      "Add Thai basil and stir-fry briefly"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Noodles with Salted Egg and Loofah",
+    "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=1200",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 20,
+    "servings": 3,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Thin wheat noodles",
+            "amount": "200",
+            "unit": "g"
+          },
+          {
+            "name": "Loofah",
+            "amount": "1",
+            "unit": "piece"
+          },
+          {
+            "name": "Salted eggs",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Garlic",
+            "amount": "3",
+            "unit": "cloves"
+          },
+          {
+            "name": "Ginger strips",
+            "amount": "a few",
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Cooking oil",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Water",
+            "amount": "800",
+            "unit": "ml"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Peel and cut loofah into chunks",
+      "Cut salted eggs into pieces, mince garlic"
+    ],
+    "cookingSteps": [
+      "Heat oil and sauté garlic and ginger",
+      "Add salted eggs and stir-fry until fragrant",
+      "Add loofah and stir-fry",
+      "Add water and bring to boil",
+      "Add noodles and cook until soft",
+      "Cook until soup slightly thickens"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Silky Scrambled Eggs with Shrimp",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/481812/b1f7cf5ddfb1c45c.jpg",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 15,
+    "servings": 3,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Shrimp",
+            "amount": "200",
+            "unit": "g"
+          },
+          {
+            "name": "Eggs",
+            "amount": "4",
+            "unit": "pieces"
+          },
+          {
+            "name": "Unsalted butter",
+            "amount": "20",
+            "unit": "g"
+          },
+          {
+            "name": "Garlic",
+            "amount": "3",
+            "unit": "cloves"
+          },
+          {
+            "name": "Salt",
+            "amount": "a pinch",
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "White pepper",
+            "amount": "a pinch",
+            "unit": ""
+          },
+          {
+            "name": "Rice wine",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Cornstarch",
+            "amount": "1",
+            "unit": "tsp"
+          },
+          {
+            "name": "Cooking oil",
+            "amount": "1",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [],
+    "cookingSteps": [
+      "Marinate shrimp with salt, white pepper, rice wine, and cornstarch for 30 minutes",
+      "Beat eggs and season with a pinch of salt",
+      "Heat oil in a cold pan over medium heat, sauté garlic",
+      "Add shrimp and cook until they change color, set aside",
+      "Add butter to cold pan, melt on high heat",
+      "Pour in egg mixture and shrimp",
+      "Use spatula to push eggs from outside to center for about 60 seconds",
+      "Remove from heat when eggs are half-set"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Mapo Tofu",
+    "image": "https://images.unsplash.com/photo-1633460367203-e667f1a4a7fb?w=1200",
+    "cuisine": "Sichuan",
+    "difficulty": "Easy",
+    "cookTime": 20,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Soft tofu",
+            "amount": "400",
+            "unit": "g"
+          },
+          {
+            "name": "Ground pork",
+            "amount": "150",
+            "unit": "g"
+          },
+          {
+            "name": "Garlic",
+            "amount": "4",
+            "unit": "cloves"
+          },
+          {
+            "name": "Ginger (minced)",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Scallions",
+            "amount": "2",
+            "unit": "stalks"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Doubanjiang (spicy bean paste)",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sichuan peppercorn powder",
+            "amount": "1",
+            "unit": "tsp"
+          },
+          {
+            "name": "Chili oil",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Stock",
+            "amount": "200",
+            "unit": "ml"
+          },
+          {
+            "name": "Cornstarch slurry",
+            "amount": "2",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Cut tofu into cubes and blanch in hot water, set aside",
+      "Mince garlic and chop scallions"
+    ],
+    "cookingSteps": [
+      "Heat oil and sauté minced garlic and ginger",
+      "Add ground pork and cook until color changes",
+      "Add doubanjiang and stir-fry until red oil appears",
+      "Pour in stock and soy sauce",
+      "Add tofu cubes and gently mix",
+      "Simmer on low heat for 5 minutes",
+      "Add cornstarch slurry to thicken",
+      "Sprinkle with Sichuan peppercorn powder and drizzle chili oil",
+      "Garnish with chopped scallions"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Braised Napa Cabbage with Tofu Skin",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/472871/9467471e717ab8fe.jpg",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 30,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Napa cabbage",
+            "amount": "600",
+            "unit": "g"
+          },
+          {
+            "name": "Dried tofu skin",
+            "amount": "50",
+            "unit": "g"
+          },
+          {
+            "name": "Dried shiitake mushrooms",
+            "amount": "5",
+            "unit": "pieces"
+          },
+          {
+            "name": "Dried shrimp",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Ginger slices",
+            "amount": "3",
+            "unit": "slices"
+          },
+          {
+            "name": "Garlic",
+            "amount": "4",
+            "unit": "cloves"
+          },
+          {
+            "name": "Salt",
+            "amount": "to taste",
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Stock",
+            "amount": "300",
+            "unit": "ml"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Cooking oil",
+            "amount": "2",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Soak mushrooms and dried shrimp until soft, reserve soaking liquid",
+      "Slice mushrooms and cut cabbage into chunks"
+    ],
+    "cookingSteps": [
+      "Heat oil and sauté ginger, garlic, and dried shrimp",
+      "Add cabbage and stir-fry",
+      "Cover and braise for 1 minute, then stir again",
+      "Add mushroom water, shrimp water, and salt",
+      "Cook until cabbage releases water, then add stock",
+      "Add tofu skin, pressing it under the cabbage",
+      "Cover and braise for 5 minutes",
+      "Stir 1-2 times until tofu skin softens"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Kung Pao Chicken",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/455170/d54f9ea85ce50370.jpg",
+    "cuisine": "Sichuan",
+    "difficulty": "Easy",
+    "cookTime": 25,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Chicken breast",
+            "amount": "400",
+            "unit": "g"
+          },
+          {
+            "name": "Roasted peanuts",
+            "amount": "80",
+            "unit": "g"
+          },
+          {
+            "name": "Scallions",
+            "amount": "2",
+            "unit": "stalks"
+          },
+          {
+            "name": "Ginger slices",
+            "amount": "3",
+            "unit": "slices"
+          },
+          {
+            "name": "Garlic",
+            "amount": "4",
+            "unit": "cloves"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Dried chilies",
+            "amount": "8",
+            "unit": "pieces"
+          },
+          {
+            "name": "Sichuan peppercorns",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "3",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sugar",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Vinegar",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Cornstarch",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Cooking oil",
+            "amount": "3",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Dice chicken breast and marinate with soy sauce, water, cornstarch, and oil",
+      "Mince scallions, ginger, and garlic"
+    ],
+    "cookingSteps": [
+      "Toast peppercorns on low heat until fragrant to make peppercorn oil",
+      "Mix sauce: soy sauce, sugar, and vinegar",
+      "Heat oil and pan-fry chicken until 80% cooked, set aside",
+      "Use peppercorn oil to toast dried chilies on low heat",
+      "Add scallions, ginger, and garlic, sauté until fragrant",
+      "Return chicken to pan and pour in sauce, stir-fry quickly",
+      "Add peanuts and toss to combine"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Dongpo Pork",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/274092/8a31c87dcb3f00cd.jpg",
+    "cuisine": "Jiangzhe",
+    "difficulty": "Medium",
+    "cookTime": 90,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Pork belly",
+            "amount": "800",
+            "unit": "g"
+          },
+          {
+            "name": "Scallions",
+            "amount": "3",
+            "unit": "stalks"
+          },
+          {
+            "name": "Ginger slices",
+            "amount": "5",
+            "unit": "slices"
+          },
+          {
+            "name": "Cotton string",
+            "amount": "as needed",
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Rice wine",
+            "amount": "200",
+            "unit": "ml"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "100",
+            "unit": "ml"
+          },
+          {
+            "name": "Rock sugar",
+            "amount": "50",
+            "unit": "g"
+          },
+          {
+            "name": "Star anise",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Water",
+            "amount": "500",
+            "unit": "ml"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Cut pork belly into large chunks",
+      "Blanch in cold water with ginger and rice wine for 20 minutes",
+      "Slice thickly and serve"
+    ],
+    "cookingSteps": [
+      "Remove and tie with cotton string to hold shape",
+      "Sauté scallion sections until fragrant",
+      "Add soy sauce, rice wine, rock sugar, star anise, and water",
+      "Add pork belly and bring to boil",
+      "In pressure cooker, turn to setting 2, after whistle reduce to low heat for 15 minutes",
+      "Turn off heat and wait for pressure to release (about 10 minutes)",
+      "Take some sauce, thicken with cornstarch and pour over meat"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Sweet and Sour Black Fungus",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/383844/bcf33065c0d56ed0.jpg",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 10,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Dried black fungus",
+            "amount": "30",
+            "unit": "g"
+          },
+          {
+            "name": "Garlic",
+            "amount": "5",
+            "unit": "cloves"
+          },
+          {
+            "name": "Cilantro",
+            "amount": "to taste",
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Chili peppers",
+            "amount": "1",
+            "unit": "piece"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sugar",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "White vinegar",
+            "amount": "3",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sesame oil",
+            "amount": "1",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Soak black fungus until soft and tear into small pieces",
+      "Blanch in boiling water for 1 minute and remove",
+      "Rinse in ice water and drain",
+      "Mince garlic and slice chili"
+    ],
+    "cookingSteps": [
+      "Mix sauce: soy sauce, sugar, vinegar, and sesame oil",
+      "Add minced garlic and chili to black fungus",
+      "Pour sauce over and toss to combine",
+      "Garnish with cilantro"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Golden Pickled Cabbage",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/459904/27448f516aa3b5ed.jpg",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 30,
+    "servings": 6,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Cabbage",
+            "amount": "800",
+            "unit": "g"
+          },
+          {
+            "name": "Carrot",
+            "amount": "100",
+            "unit": "g"
+          },
+          {
+            "name": "Ginger",
+            "amount": "50",
+            "unit": "g"
+          },
+          {
+            "name": "Garlic",
+            "amount": "5",
+            "unit": "cloves"
+          },
+          {
+            "name": "Salt",
+            "amount": "2",
+            "unit": "tbsp"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Chili peppers",
+            "amount": "3",
+            "unit": "pieces"
+          },
+          {
+            "name": "Sugar",
+            "amount": "4",
+            "unit": "tbsp"
+          },
+          {
+            "name": "White vinegar",
+            "amount": "150",
+            "unit": "ml"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Cut cabbage into chunks and shred carrot",
+      "Julienne ginger, slice garlic, and cut chilies into sections"
+    ],
+    "cookingSteps": [
+      "Add salt, massage well, and let sit for 30 minutes to release water",
+      "Squeeze out excess water",
+      "Mix pickling liquid: dissolve sugar in vinegar",
+      "Combine all ingredients evenly",
+      "Pour pickling liquid over",
+      "Seal and refrigerate for at least 2 hours",
+      "Flavor improves the next day"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Honey Apple Banana Pancakes",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/450442/535dd1587a8a788e.jpg",
+    "cuisine": "Western Dessert",
+    "difficulty": "Easy",
+    "cookTime": 30,
+    "servings": 3,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Apple",
+            "amount": "1",
+            "unit": "piece"
+          },
+          {
+            "name": "Banana",
+            "amount": "1",
+            "unit": "piece"
+          },
+          {
+            "name": "Eggs",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "All-purpose flour",
+            "amount": "125",
+            "unit": "g"
+          },
+          {
+            "name": "Unsweetened black tea",
+            "amount": "100",
+            "unit": "ml"
+          },
+          {
+            "name": "Honey",
+            "amount": "to taste",
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Olive oil",
+            "amount": "as needed",
+            "unit": ""
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Peel and cut apple into chunks, slice banana"
+    ],
+    "cookingSteps": [
+      "Set aside some for topping",
+      "Blend remaining fruits, eggs, and black tea into puree",
+      "Add flour and mix until smooth",
+      "Heat a little olive oil in a pan",
+      "Pour in batter over low heat, cook until edges are set",
+      "Flip and cook until both sides are golden",
+      "Serve on plate and drizzle with honey",
+      "Top with reserved fruit pieces for decoration"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Japanese Sweet and Sour Lotus Root",
+    "image": "https://images.unsplash.com/photo-1604908816403-7f92ab28fceb?w=1200",
+    "cuisine": "Japanese",
+    "difficulty": "Easy",
+    "cookTime": 20,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Lotus root",
+            "amount": "300",
+            "unit": "g"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Soy sauce",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Rice vinegar",
+            "amount": "3",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sugar",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Mirin",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "White sesame seeds",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Cooking oil",
+            "amount": "2",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Peel and slice lotus root thinly",
+      "Soak in water to prevent browning"
+    ],
+    "cookingSteps": [
+      "Mix sauce: soy sauce, vinegar, sugar, and mirin",
+      "Drain lotus root slices",
+      "Heat oil and pan-fry lotus root until both sides are golden",
+      "Pour in sauce",
+      "Cook over medium heat until sauce reduces",
+      "Sprinkle with white sesame seeds"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Oolong Tea Braised Tofu and Rice Blood",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/460439/4b5e69e4ba15ff06.jpg",
+    "cuisine": "Taiwanese Snack",
+    "difficulty": "Easy",
+    "cookTime": 45,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Pressed tofu",
+            "amount": "300",
+            "unit": "g"
+          },
+          {
+            "name": "Rice blood cake",
+            "amount": "300",
+            "unit": "g"
+          },
+          {
+            "name": "Oolong tea bags",
+            "amount": "2",
+            "unit": "bags"
+          },
+          {
+            "name": "Cinnamon stick",
+            "amount": "1",
+            "unit": "piece"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Soy sauce",
+            "amount": "4",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Rock sugar",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Star anise",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Water",
+            "amount": "1000",
+            "unit": "ml"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Cut tofu and rice blood into chunks"
+    ],
+    "cookingSteps": [
+      "Bring water to boil and steep tea bags to make tea broth",
+      "Add soy sauce, rock sugar, star anise, and cinnamon",
+      "Add tofu and rice blood",
+      "Simmer on low heat for 40 minutes",
+      "Turn off heat and let soak for 30 minutes for more flavor"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Stir-Fried Dried Fish with Tofu and Shishito Peppers",
+    "image": "https://images.unsplash.com/photo-1623238072320-7f6aafcb4da6?w=1200",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 15,
+    "servings": 3,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Dried small fish",
+            "amount": "50",
+            "unit": "g"
+          },
+          {
+            "name": "Pressed tofu",
+            "amount": "150",
+            "unit": "g"
+          },
+          {
+            "name": "Garlic",
+            "amount": "5",
+            "unit": "cloves"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Shishito peppers",
+            "amount": "150",
+            "unit": "g"
+          },
+          {
+            "name": "Chili peppers",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Sugar",
+            "amount": "1",
+            "unit": "tsp"
+          },
+          {
+            "name": "Cooking oil",
+            "amount": "2",
+            "unit": "tbsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Cut tofu into strips and cut shishito peppers into sections",
+      "Slice garlic and cut chilies into sections"
+    ],
+    "cookingSteps": [
+      "Heat oil and stir-fry dried fish until crispy",
+      "Add garlic slices and chilies, sauté until fragrant",
+      "Add tofu strips and stir-fry",
+      "Add shishito peppers",
+      "Season with soy sauce and sugar",
+      "Stir-fry quickly until peppers soften"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Three-Cup Chicken with Basil",
+    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/479487/6f105ef933cb81e1.jpg",
+    "cuisine": "Taiwanese Home Cooking",
+    "difficulty": "Easy",
+    "cookTime": 35,
+    "servings": 4,
+    "ingredientGroups": [
+      {
+        "title": "Main",
+        "ingredients": [
+          {
+            "name": "Chicken thighs",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Thai basil",
+            "amount": "1",
+            "unit": "bunch"
+          },
+          {
+            "name": "Garlic",
+            "amount": "10",
+            "unit": "cloves"
+          },
+          {
+            "name": "Ginger slices",
+            "amount": "5",
+            "unit": "slices"
+          }
+        ]
+      },
+      {
+        "title": "Seasonings",
+        "ingredients": [
+          {
+            "name": "Chili peppers",
+            "amount": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Black sesame oil",
+            "amount": "3",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Rice wine",
+            "amount": "100",
+            "unit": "ml"
+          },
+          {
+            "name": "Soy sauce",
+            "amount": "3",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Soy sauce paste",
+            "amount": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Rock sugar",
+            "amount": "1",
+            "unit": "tsp"
+          }
+        ]
+      }
+    ],
+    "prepSteps": [
+      "Cut chicken into pieces"
+    ],
+    "cookingSteps": [
+      "Heat black sesame oil and sauté ginger slices and garlic",
+      "Add chicken and stir-fry until color changes",
+      "Pour in rice wine",
+      "Add soy sauce, soy sauce paste, and rock sugar",
+      "Add water to cover chicken",
+      "Simmer on low heat for 25 minutes",
+      "Turn to high heat to reduce sauce",
+      "Add Thai basil and chilies, stir-fry",
+      "Drizzle sesame oil before serving"
+    ]
+  }
+]
