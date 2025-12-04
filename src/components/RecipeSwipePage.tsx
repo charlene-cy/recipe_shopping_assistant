@@ -22,7 +22,27 @@ interface RecipeSwipePageProps {
 }
 
 export function RecipeSwipePage({ recipes, onRecipeSelect }: RecipeSwipePageProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // Load persisted index from localStorage or start at 0
+  const [currentIndex, setCurrentIndex] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('recipe_swipe_index');
+      if (saved) {
+        const parsed = parseInt(saved, 10);
+        // Ensure index is valid
+        if (!isNaN(parsed) && parsed >= 0 && parsed < recipes.length) {
+          return parsed;
+        }
+      }
+    }
+    return 0;
+  });
+
+  // Persist index to localStorage whenever it changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('recipe_swipe_index', currentIndex.toString());
+    }
+  }, [currentIndex]);
 
   // Secret developer feature - tap counter
   const [tapCount, setTapCount] = useState(0);
@@ -33,13 +53,16 @@ export function RecipeSwipePage({ recipes, onRecipeSelect }: RecipeSwipePageProp
   const handleSwipeRight = () => {
     if (currentIndex < recipes.length) {
       onRecipeSelect(recipes[currentIndex]);
+      // Move to next recipe after viewing, loop back to start if at end
+      const nextIndex = (currentIndex + 1) % recipes.length;
+      setCurrentIndex(nextIndex);
     }
   };
 
   const handleSwipeLeft = () => {
-    if (currentIndex < recipes.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
+    // Move to next recipe, loop back to start if at end
+    const nextIndex = (currentIndex + 1) % recipes.length;
+    setCurrentIndex(nextIndex);
   };
 
   // Reset tap counter after 3 seconds of inactivity

@@ -67,7 +67,7 @@ export function CartPage({ cartItems, onBack, onUpdateQuantity, onRemoveItem, on
       </div>
 
       {/* Cart Items */}
-      <div className="p-4 md:p-6 lg:p-8 pb-24 md:pb-32">
+      <div className="p-4 md:p-6 lg:p-8 pb-56 md:pb-32">
         {Object.entries(itemsByRecipe).length === 0 ? (
           <div className="text-center py-12">
             <p className="text-gray-500 mb-4 text-sm md:text-base lg:text-lg">Your cart is empty</p>
@@ -78,23 +78,25 @@ export function CartPage({ cartItems, onBack, onUpdateQuantity, onRemoveItem, on
             {Object.entries(itemsByRecipe).map(([recipeId, { recipeName, items }]) => (
               <div key={recipeId} className="bg-white rounded-2xl p-3 md:p-4 lg:p-5">
                 <h3 className="mb-3 md:mb-4 text-orange-600 text-base md:text-lg lg:text-xl">{recipeName}</h3>
-                <div className="space-y-3 md:space-y-4">
+                <div className="space-y-2 md:space-y-4">
                   {items.map((item) => (
-                    <div key={item.product.id} className="flex flex-col md:flex-row gap-3 md:gap-4 pb-3 md:pb-4 border-b last:border-0">
+                    <div key={item.product.id} className="flex gap-3 pb-2 md:pb-4 border-b last:border-0">
                       <ImageWithFallback
                         src={item.product.image}
                         alt={item.product.name}
-                        className="w-full md:w-20 h-48 md:h-20 object-cover rounded-xl flex-shrink-0"
+                        className="w-16 h-16 md:w-20 md:h-20 object-cover rounded-lg flex-shrink-0"
                       />
-                      
-                      <div className="flex-1 min-w-0">
-                        <h4 className="mb-1 line-clamp-2 text-sm md:text-base lg:text-lg">{item.product.name}</h4>
-                        <p className="text-orange-600 mb-2 text-sm md:text-base lg:text-lg">
-                          ${item.product.price.toFixed(2)}
-                        </p>
+
+                      <div className="flex-1 min-w-0 flex flex-col justify-between">
+                        <div>
+                          <h4 className="line-clamp-2 text-sm md:text-base">{item.product.name}</h4>
+                          <p className="text-orange-600 text-sm md:text-base font-medium mt-0.5">
+                            ${item.product.price.toFixed(2)}
+                          </p>
+                        </div>
                       </div>
 
-                      <div className="flex-shrink-0 flex items-end">
+                      <div className="flex-shrink-0 flex items-center">
                         <AddIngredientButton
                           quantity={item.quantity}
                           onQuantityChange={(newQuantity) => {
