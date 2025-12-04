@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDown, ChevronUp, Loader2, AlertCircle, Check, Search, X, Undo2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -47,7 +47,9 @@ export function IngredientMatchCard({
   matchedTimestamp,
   wasAddedToCart = false,
 }: IngredientMatchCardProps) {
-  const [showAlternatives, setShowAlternatives] = useState(false);
+  // Start with alternatives expanded if user has made a selection
+  const hasUserSelection = matchStatus === 'user_choice' || matchStatus === 'your_choice';
+  const [showAlternatives, setShowAlternatives] = useState(hasUserSelection);
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   const [showMatchDialog, setShowMatchDialog] = useState(false);
   const [isSkipped, setIsSkipped] = useState(false);
@@ -94,6 +96,13 @@ export function IngredientMatchCard({
 
   const statusConfig = getStatusConfig();
 
+  // Collapse alternatives when collapseAlternatives signal is set
+  useEffect(() => {
+    if (matchState.collapseAlternatives) {
+      setShowAlternatives(false);
+    }
+  }, [matchState.collapseAlternatives]);
+
   const handleAlternativeSelect = (productId: string) => {
     setSelectedProductId(productId);
 
@@ -114,6 +123,11 @@ export function IngredientMatchCard({
         timestamp: new Date(),
       });
     }
+
+    // Collapse alternatives after selection
+    setTimeout(() => {
+      setShowAlternatives(false);
+    }, 300);
   };
 
   const handleManualSearch = () => {

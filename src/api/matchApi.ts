@@ -28,6 +28,7 @@ export interface IngredientMatchState {
   selectedProductId?: string; // User's selected product (could be alternative)
   isFromCache?: boolean; // True if this match was loaded from history, false if fresh from API
   isUserSelection?: boolean; // True if user manually selected this product (alternative or manual search)
+  collapseAlternatives?: boolean; // Signal to collapse alternatives after manual selection
 }
 
 export type UserFeedbackType = 'thumbs_up' | 'thumbs_down' | 'selected_alternative' | 'manual_search' | 'skipped';

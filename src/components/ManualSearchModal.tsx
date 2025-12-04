@@ -41,15 +41,20 @@ export function ManualSearchModal({
   const handleSelect = () => {
     const product = products.find(p => p.id === selectedProductId);
     if (product) {
+      // Call onSelect first to update parent state
+      // The parent will handle closing this modal
       onSelect(product);
-      onClose();
     }
   };
 
   const handleCancel = () => {
     setSearchQuery(ingredient.name);
     setSelectedProductId(null);
-    onClose();
+
+    // Delay closing to prevent IngredientModal from closing
+    setTimeout(() => {
+      onClose();
+    }, 100);
   };
 
   // Handle sheet state changes - prevent closing parent modal
@@ -60,8 +65,8 @@ export function ManualSearchModal({
   };
 
   return (
-    <Sheet open={isOpen} onOpenChange={handleOpenChange}>
-      <SheetContent side="bottom" className="h-[85vh] rounded-t-3xl p-0">
+    <Sheet open={isOpen} onOpenChange={handleOpenChange} modal={true}>
+      <SheetContent side="bottom" className="h-[85vh] rounded-t-3xl p-0" onInteractOutside={(e) => e.preventDefault()}>
         <div className="flex flex-col h-full">
           <SheetHeader className="p-6 pb-4 border-b">
             <div>

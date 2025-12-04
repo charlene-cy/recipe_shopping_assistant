@@ -193,8 +193,8 @@ export function IngredientModal({
     setManualSearchIngredient(ingredientId);
   };
 
-  const handleManualSelect = (product: WeeeProduct) => {
-    const ingredient = recipe.ingredients.find(i => i.id === manualSearchIngredient);
+  const handleManualSelect = (product: WeeeProduct, ingredientId: string) => {
+    const ingredient = recipe.ingredients.find(i => i.id === ingredientId);
     if (!ingredient) return;
 
     const manualMatch = {
@@ -208,8 +208,18 @@ export function IngredientModal({
     matchHistory.saveMatch(ingredient.name, manualMatch, []);
 
     // Create a matched result for the manually selected product
+    // Preserve original alternatives from the AI match so user can still switch back
     setMatchStates((prev) => {
       const updated = new Map(prev);
+      const currentState = prev.get(ingredient.id);
+      const existingAlternatives = currentState?.result?.alternatives || [];
+      const existingBestMatch = currentState?.result?.bestMatch;
+
+      // If we had an existing best match, add it to alternatives so user can switch back
+      const alternativesWithPrevious = existingBestMatch && existingBestMatch.id !== product.id
+        ? [existingBestMatch, ...existingAlternatives]
+        : existingAlternatives;
+
       updated.set(ingredient.id, {
         ingredient,
         state: 'matched',
@@ -218,15 +228,21 @@ export function IngredientModal({
         result: {
           ingredient,
           bestMatch: manualMatch,
-          alternatives: [],
-          candidateCount: 1,
+          alternatives: alternativesWithPrevious, // Preserve alternatives so user can change their mind
+          candidateCount: currentState?.result?.candidateCount || 1,
         },
+        collapseAlternatives: true, // ✅ Signal to collapse alternatives
       });
       return updated;
     });
 
     toast.success(`Selected ${product.name}`);
-    setManualSearchIngredient(null);
+
+    // Close the manual search modal AFTER a brief delay to prevent the IngredientModal from closing
+    // This prevents the Sheet's onOpenChange from being triggered by the ManualSearchModal closing
+    setTimeout(() => {
+      setManualSearchIngredient(null);
+    }, 100);
   };
 
   const handleSkip = (ingredientId: string) => {
@@ -322,8 +338,25 @@ export function IngredientModal({
 
   return (
     <>
-      <Sheet open={isOpen} onOpenChange={onClose}>
-        <SheetContent side="bottom" className="h-[85vh] rounded-t-3xl p-0">
+      <Sheet
+        open={isOpen}
+        onOpenChange={(open) => {
+          // Only allow closing if ManualSearchModal is not open
+          if (!open && !manualSearchIngredient) {
+            onClose();
+          }
+        }}
+      >
+        <SheetContent
+          side="bottom"
+          className="h-[85vh] rounded-t-3xl p-0"
+          onInteractOutside={(e) => {
+            // Prevent closing if ManualSearchModal is open
+            if (manualSearchIngredient) {
+              e.preventDefault();
+            }
+          }}
+        >
           <div className="flex flex-col h-full">
             <SheetHeader className="p-6 pb-4 border-b">
               <SheetTitle>AI Product Matching</SheetTitle>
@@ -435,13 +468,13 @@ export function IngredientModal({
       </Sheet>
 
       {/* Manual Search Modal */}
-      {manualIngredient && (
+      {manualIngredient && manualSearchIngredient && (
         <ManualSearchModal
           isOpen={!!manualSearchIngredient}
           onClose={() => setManualSearchIngredient(null)}
           ingredient={manualIngredient}
           products={products}
-          onSelect={handleManualSelect}
+          onSelect={(product) => handleManualSelect(product, manualSearchIngredient)}
         />
       )}
     </>
