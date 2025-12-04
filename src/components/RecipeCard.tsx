@@ -50,11 +50,6 @@ export function RecipeCard({ recipe, onSwipeRight, onSwipeLeft, style }: RecipeC
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-
-          {/* Amy's Kitchen watermark */}
-          <div className="absolute top-4 right-4 text-white font-serif italic text-xl opacity-90">
-            Amy's Kitchen
-          </div>
         </div>
 
         {/* Content Section - 35% height */}

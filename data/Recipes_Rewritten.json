@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Beef with Scallions",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/438849/d41ec9e853ac65bf.jpg",
+    "image": "/images/recipe_images/1.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 20,
@@ -84,7 +84,7 @@
   {
     "id": 2,
     "name": "Braised Napa Cabbage with Spicy Bean Paste",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/450542/3a4524d0c3b7f440.jpg",
+    "image": "/images/recipe_images/2.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 25,
@@ -156,7 +156,7 @@
   {
     "id": 3,
     "name": "Sichuan-Style King Oyster Mushrooms",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/481367/1de91a70512c9e5c.jpg",
+    "image": "/images/recipe_images/3.png",
     "cuisine": "Sichuan",
     "difficulty": "Easy",
     "cookTime": 15,
@@ -232,7 +232,7 @@
   {
     "id": 4,
     "name": "Taiwanese Minced Pork with Shiitake and Pickled Cucumber",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/482432/4b344863105b9162.jpg",
+    "image": "/images/recipe_images/4.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 40,
@@ -315,7 +315,7 @@
   {
     "id": 5,
     "name": "Chicken Soup with Pickled Green Chilies",
-    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=1200",
+    "image": "/images/recipe_images/5.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 45,
@@ -387,7 +387,7 @@
   {
     "id": 6,
     "name": "Braised Beef Brisket",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/472098/a80da7ee06e3b44a.jpg",
+    "image": "/images/recipe_images/6.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Medium",
     "cookTime": 90,
@@ -471,7 +471,7 @@
   {
     "id": 7,
     "name": "Three-Cup Chicken",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/457313/6dd111b09246f51a.jpg",
+    "image": "/images/recipe_images/7.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 35,
@@ -561,7 +561,7 @@
   {
     "id": 8,
     "name": "Savory Tangyuan (Glutinous Rice Balls)",
-    "image": "https://images.unsplash.com/photo-1569394673537-9c60bc4fe7d8?w=1200",
+    "image": "/images/recipe_images/8.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 25,
@@ -645,7 +645,7 @@
   {
     "id": 9,
     "name": "Sichuan Poached Chicken with Chili Oil",
-    "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=1200",
+    "image": "/images/recipe_images/9.png",
     "cuisine": "Sichuan",
     "difficulty": "Easy",
     "cookTime": 30,
@@ -732,7 +732,7 @@
   {
     "id": 10,
     "name": "Sesame Oil Noodles with Ginger and Egg",
-    "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=1200",
+    "image": "/images/recipe_images/10.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 20,
@@ -805,7 +805,7 @@
   {
     "id": 11,
     "name": "Stir-Fried Sweet Potato Leaves with Chili",
-    "image": "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=1200",
+    "image": "/images/recipe_images/11.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 10,
@@ -867,7 +867,7 @@
   {
     "id": 12,
     "name": "Basil Pumpkin",
-    "image": "https://images.unsplash.com/photo-1570586437263-ab629fccc818?w=1200",
+    "image": "/images/recipe_images/12.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 20,
@@ -940,7 +940,7 @@
   {
     "id": 13,
     "name": "Noodles with Salted Egg and Loofah",
-    "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=1200",
+    "image": "/images/recipe_images/13.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 20,
@@ -1008,7 +1008,7 @@
   {
     "id": 14,
     "name": "Silky Scrambled Eggs with Shrimp",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/481812/b1f7cf5ddfb1c45c.jpg",
+    "image": "/images/recipe_images/14.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 15,
@@ -1085,7 +1085,7 @@
   {
     "id": 15,
     "name": "Mapo Tofu",
-    "image": "https://images.unsplash.com/photo-1633460367203-e667f1a4a7fb?w=1200",
+    "image": "/images/recipe_images/15.png",
     "cuisine": "Sichuan",
     "difficulty": "Easy",
     "cookTime": 20,
@@ -1176,7 +1176,7 @@
   {
     "id": 16,
     "name": "Braised Napa Cabbage with Tofu Skin",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/472871/9467471e717ab8fe.jpg",
+    "image": "/images/recipe_images/16.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 30,
@@ -1261,7 +1261,7 @@
   {
     "id": 17,
     "name": "Kung Pao Chicken",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/455170/d54f9ea85ce50370.jpg",
+    "image": "/images/recipe_images/17.png",
     "cuisine": "Sichuan",
     "difficulty": "Easy",
     "cookTime": 25,
@@ -1355,7 +1355,7 @@
   {
     "id": 18,
     "name": "Dongpo Pork",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/274092/8a31c87dcb3f00cd.jpg",
+    "image": "/images/recipe_images/18.png",
     "cuisine": "Jiangzhe",
     "difficulty": "Medium",
     "cookTime": 90,
@@ -1435,7 +1435,7 @@
   {
     "id": 19,
     "name": "Sweet and Sour Black Fungus",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/383844/bcf33065c0d56ed0.jpg",
+    "image": "/images/recipe_images/19.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 10,
@@ -1508,7 +1508,7 @@
   {
     "id": 20,
     "name": "Golden Pickled Cabbage",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/459904/27448f516aa3b5ed.jpg",
+    "image": "/images/recipe_images/20.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 30,
@@ -1582,7 +1582,7 @@
   {
     "id": 21,
     "name": "Honey Apple Banana Pancakes",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/450442/535dd1587a8a788e.jpg",
+    "image": "/images/recipe_images/21.png",
     "cuisine": "Western Dessert",
     "difficulty": "Easy",
     "cookTime": 30,
@@ -1651,7 +1651,7 @@
   {
     "id": 22,
     "name": "Japanese Sweet and Sour Lotus Root",
-    "image": "https://images.unsplash.com/photo-1604908816403-7f92ab28fceb?w=1200",
+    "image": "/images/recipe_images/22.png",
     "cuisine": "Japanese",
     "difficulty": "Easy",
     "cookTime": 20,
@@ -1719,7 +1719,7 @@
   {
     "id": 23,
     "name": "Oolong Tea Braised Tofu and Rice Blood",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/460439/4b5e69e4ba15ff06.jpg",
+    "image": "/images/recipe_images/23.png",
     "cuisine": "Taiwanese Snack",
     "difficulty": "Easy",
     "cookTime": 45,
@@ -1790,7 +1790,7 @@
   {
     "id": 24,
     "name": "Stir-Fried Dried Fish with Tofu and Shishito Peppers",
-    "image": "https://images.unsplash.com/photo-1623238072320-7f6aafcb4da6?w=1200",
+    "image": "/images/recipe_images/24.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 15,
@@ -1863,7 +1863,7 @@
   {
     "id": 25,
     "name": "Three-Cup Chicken with Basil",
-    "image": "https://imgproxy.icook.network/safe/rt:fit/w:1200/el:0/q:80/plain/http://tokyo-kitchen.icook.tw.s3.amazonaws.com/uploads/recipe/cover/479487/6f105ef933cb81e1.jpg",
+    "image": "/images/recipe_images/25.png",
     "cuisine": "Taiwanese Home Cooking",
     "difficulty": "Easy",
     "cookTime": 35,

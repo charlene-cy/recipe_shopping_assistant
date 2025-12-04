@@ -76,40 +76,110 @@ export function RecipeDetailPage({ recipe, products, onBack, cartQuantities, onQ
         {/* Ingredients Section */}
         <section className="mb-6 md:mb-8 lg:mb-10">
           <h2 className="mb-3 md:mb-4 lg:mb-5 text-xl md:text-2xl lg:text-3xl">Ingredients</h2>
-          <div className="bg-gray-50 rounded-2xl p-3 md:p-4 lg:p-5 space-y-2 md:space-y-3">
-            {recipe.ingredients.map((ingredient) => {
-              const hasMatch = products.some(p => p.ingredientId === ingredient.id);
-              
-              return (
-                <div key={ingredient.id} className="flex justify-between items-center py-2 border-b border-gray-200 last:border-0">
-                  <div className="flex items-center gap-2">
-                    <span className="text-gray-700">{ingredient.name}</span>
-                    <span className="text-gray-500">{ingredient.amount}</span>
+          {recipe.ingredientGroups ? (
+            // New grouped structure
+            <div className="space-y-4">
+              {recipe.ingredientGroups.map((group, groupIndex) => (
+                <div key={groupIndex}>
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base md:text-lg">{group.title}</h3>
+                  <div className="bg-gray-50 rounded-2xl p-3 md:p-4 lg:p-5 space-y-2 md:space-y-3">
+                    {group.ingredients.map((ingredient) => {
+                      const hasMatch = products.some(p => p.ingredientId === ingredient.id);
+
+                      return (
+                        <div key={ingredient.id} className="flex justify-between items-center py-2 border-b border-gray-200 last:border-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-gray-700">{ingredient.name}</span>
+                            <span className="text-gray-500">{ingredient.amount}</span>
+                          </div>
+                          {hasMatch && (
+                            <span className="px-2 py-0.5 bg-orange-100 text-orange-600 rounded-full text-xs">
+                              Weee!
+                            </span>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
-                  {hasMatch && (
-                    <span className="px-2 py-0.5 bg-orange-100 text-orange-600 rounded-full text-xs">
-                      Weee!
-                    </span>
-                  )}
                 </div>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          ) : (
+            // Old flat structure
+            <div className="bg-gray-50 rounded-2xl p-3 md:p-4 lg:p-5 space-y-2 md:space-y-3">
+              {recipe.ingredients.map((ingredient) => {
+                const hasMatch = products.some(p => p.ingredientId === ingredient.id);
+
+                return (
+                  <div key={ingredient.id} className="flex justify-between items-center py-2 border-b border-gray-200 last:border-0">
+                    <div className="flex items-center gap-2">
+                      <span className="text-gray-700">{ingredient.name}</span>
+                      <span className="text-gray-500">{ingredient.amount}</span>
+                    </div>
+                    {hasMatch && (
+                      <span className="px-2 py-0.5 bg-orange-100 text-orange-600 rounded-full text-xs">
+                        Weee!
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </section>
 
         {/* Directions Section */}
         <section>
-          <h2 className="mb-3 md:mb-4 lg:mb-5 text-xl md:text-2xl lg:text-3xl">Directions</h2>
-          <div className="space-y-4 md:space-y-6 lg:space-y-8">
-            {recipe.directions.map((direction, index) => (
-              <div key={index} className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center">
-                  {index + 1}
+          {recipe.prepSteps && recipe.cookingSteps ? (
+            // New structure with separated prep and cooking steps
+            <>
+              {recipe.prepSteps && recipe.prepSteps.length > 0 && (
+                <div className="mb-6 md:mb-8">
+                  <h2 className="mb-3 md:mb-4 lg:mb-5 text-xl md:text-2xl lg:text-3xl">Preparation</h2>
+                  <div className="space-y-4 md:space-y-6 lg:space-y-8">
+                    {recipe.prepSteps.map((step, index) => (
+                      <div key={index} className="flex gap-4">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">
+                          {index + 1}
+                        </div>
+                        <p className="text-gray-700 flex-1 pt-1">{step}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <p className="text-gray-700 flex-1 pt-1">{direction}</p>
+              )}
+              {recipe.cookingSteps && recipe.cookingSteps.length > 0 && (
+                <div>
+                  <h2 className="mb-3 md:mb-4 lg:mb-5 text-xl md:text-2xl lg:text-3xl">Cooking Steps</h2>
+                  <div className="space-y-4 md:space-y-6 lg:space-y-8">
+                    {recipe.cookingSteps.map((step, index) => (
+                      <div key={index} className="flex gap-4">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-medium">
+                          {index + 1}
+                        </div>
+                        <p className="text-gray-700 flex-1 pt-1">{step}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            // Old structure with combined directions
+            <>
+              <h2 className="mb-3 md:mb-4 lg:mb-5 text-xl md:text-2xl lg:text-3xl">Directions</h2>
+              <div className="space-y-4 md:space-y-6 lg:space-y-8">
+                {recipe.directions.map((direction, index) => (
+                  <div key={index} className="flex gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-medium">
+                      {index + 1}
+                    </div>
+                    <p className="text-gray-700 flex-1 pt-1">{direction}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
         </section>
       </div>
 

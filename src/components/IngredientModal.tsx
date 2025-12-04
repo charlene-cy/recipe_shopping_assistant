@@ -302,6 +302,9 @@ export function IngredientModal({
 
   // Calculate progress
   const totalIngredients = recipe.ingredients.length;
+  const completedCount = Array.from(matchStates.values()).filter(
+    (s) => s.state === 'matched' || s.state === 'no_match' || s.state === 'error'
+  ).length;
   const matchedCount = Array.from(matchStates.values()).filter(
     (s) => s.state === 'matched'
   ).length;
@@ -327,7 +330,10 @@ export function IngredientModal({
               <div className="flex items-center justify-between text-sm">
                 <p className="text-gray-500">{recipe.name}</p>
                 <p className="text-blue-600 font-medium">
-                  {matchedCount} of {totalIngredients} matched
+                  {completedCount < totalIngredients
+                    ? `Matching ${completedCount} of ${totalIngredients}...`
+                    : `${matchedCount} of ${totalIngredients} matched`
+                  }
                 </p>
               </div>
             </SheetHeader>

@@ -9,13 +9,21 @@ export interface Recipe {
   servings: number;
   cuisine?: string;
   ingredients: RecipeIngredient[];
+  ingredientGroups?: IngredientGroup[];
   directions: string[];
+  prepSteps?: string[];
+  cookingSteps?: string[];
 }
 
 export interface RecipeIngredient {
   id: string;
   name: string;
   amount: string;
+}
+
+export interface IngredientGroup {
+  title: string;
+  ingredients: RecipeIngredient[];
 }
 
 export interface WeeeProduct {
