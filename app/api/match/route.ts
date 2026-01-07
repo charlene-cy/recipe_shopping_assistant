@@ -57,6 +57,19 @@ const MIN_ALTERNATIVE_CONFIDENCE = 60;
 const HIGH_CONFIDENCE_THRESHOLD = 80;
 const DEFAULT_CONFIDENCE = 65;
 
+// Basic ingredients that should not be matched (excluded from shopping list)
+const BASIC_INGREDIENTS = ['water', 'salt', 'sugar'];
+
+/**
+ * Check if an ingredient is a basic ingredient that should be excluded from matching
+ * @param ingredientName - The name of the ingredient to check
+ * @returns true if the ingredient is a basic ingredient
+ */
+const isBasicIngredient = (ingredientName: string): boolean => {
+  const normalized = ingredientName.toLowerCase().trim();
+  return BASIC_INGREDIENTS.some(basic => normalized.includes(basic));
+};
+
 const getOpenAIClient = () => {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
@@ -371,6 +384,17 @@ export async function POST(request: NextRequest) {
     const ingredient = body.ingredient as IngredientPayload;
     const products = body.products as ProductPayload[];
     const { options } = body;
+
+    // Skip matching for basic ingredients
+    if (isBasicIngredient(ingredient.name)) {
+      console.log('[match] Skipping basic ingredient:', ingredient.name);
+      return NextResponse.json({
+        ingredient,
+        bestMatch: null,
+        alternatives: [],
+        candidateCount: 0,
+      });
+    }
 
     const maxCandidates = Math.min(
       Math.max(options?.maxCandidates ?? MAX_PRODUCTS_FOR_MODEL, 1),

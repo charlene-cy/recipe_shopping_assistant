@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Recipe, WeeeProduct } from '@/src/types';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from './ui/sheet';
 import { Button } from './ui/button';
 import { ShoppingCart } from 'lucide-react';
 import { toast } from 'sonner';
-import { matchIngredientToProducts, type IngredientMatchState } from '@/src/api/matchApi';
+import { matchIngredientToProducts, type IngredientMatchState, isBasicIngredient } from '@/src/api/matchApi';
 import { IngredientMatchCard } from './IngredientMatchCard';
 import { ManualSearchModal } from './ManualSearchModal';
 import { useMatchHistory } from '@/src/hooks/useMatchHistory';
@@ -33,12 +33,17 @@ export function IngredientModal({
   const [cartUpdateTrigger, setCartUpdateTrigger] = useState(0); // Force re-render on cart changes
   const matchHistory = useMatchHistory();
 
+  // Filter out basic ingredients (water, salt, sugar)
+  const matchableIngredients = useMemo(() => {
+    return recipe.ingredients.filter(ingredient => !isBasicIngredient(ingredient.name));
+  }, [recipe.ingredients]);
+
   // Initialize all ingredients as "waiting" when modal opens
   useEffect(() => {
     if (isOpen && products.length > 0) {
-      // Initialize states
+      // Initialize states (only for non-basic ingredients)
       const initialStates = new Map<string, IngredientMatchState>();
-      recipe.ingredients.forEach((ingredient) => {
+      matchableIngredients.forEach((ingredient) => {
         initialStates.set(ingredient.id, {
           ingredient,
           state: 'waiting',
@@ -49,7 +54,7 @@ export function IngredientModal({
       // Start matching all ingredients in parallel
       fetchAllMatches();
     }
-  }, [isOpen, recipe.id]);
+  }, [isOpen, recipe.id, matchableIngredients]);
 
   // Watch for cart quantity changes and update match history
   useEffect(() => {
@@ -75,14 +80,14 @@ export function IngredientModal({
   }, [cartQuantities, matchHistory.isLoaded]);
 
   const fetchAllMatches = async () => {
-    // Match all ingredients in parallel
-    recipe.ingredients.forEach((ingredient) => {
+    // Match all ingredients in parallel (only matchable ingredients)
+    matchableIngredients.forEach((ingredient) => {
       fetchSingleMatch(ingredient.id);
     });
   };
 
   const fetchSingleMatch = async (ingredientId: string, forceRefresh = false) => {
-    const ingredient = recipe.ingredients.find(i => i.id === ingredientId);
+    const ingredient = matchableIngredients.find(i => i.id === ingredientId);
     if (!ingredient) return;
 
     // Check if we have a match in history (unless forcing refresh)
@@ -180,7 +185,7 @@ export function IngredientModal({
   };
 
   const handleRetry = (ingredientId: string) => {
-    const ingredient = recipe.ingredients.find(i => i.id === ingredientId);
+    const ingredient = matchableIngredients.find(i => i.id === ingredientId);
     if (ingredient) {
       // Clear match from history to force fresh API call
       matchHistory.clearMatch(ingredient.name);
@@ -194,7 +199,7 @@ export function IngredientModal({
   };
 
   const handleManualSelect = (product: WeeeProduct, ingredientId: string) => {
-    const ingredient = recipe.ingredients.find(i => i.id === ingredientId);
+    const ingredient = matchableIngredients.find(i => i.id === ingredientId);
     if (!ingredient) return;
 
     const manualMatch = {
@@ -246,7 +251,7 @@ export function IngredientModal({
   };
 
   const handleSkip = (ingredientId: string) => {
-    const ingredient = recipe.ingredients.find(i => i.id === ingredientId);
+    const ingredient = matchableIngredients.find(i => i.id === ingredientId);
     if (!ingredient) return;
 
     setMatchStates((prev) => {
@@ -262,7 +267,7 @@ export function IngredientModal({
   };
 
   const handleAlternativeSelected = (ingredientId: string, productId: string) => {
-    const ingredient = recipe.ingredients.find(i => i.id === ingredientId);
+    const ingredient = matchableIngredients.find(i => i.id === ingredientId);
     const matchState = matchStates.get(ingredientId);
 
     if (!ingredient || !matchState?.result) return;
@@ -316,8 +321,8 @@ export function IngredientModal({
     setCartUpdateTrigger(prev => prev + 1);
   };
 
-  // Calculate progress
-  const totalIngredients = recipe.ingredients.length;
+  // Calculate progress (only for matchable ingredients)
+  const totalIngredients = matchableIngredients.length;
   const completedCount = Array.from(matchStates.values()).filter(
     (s) => s.state === 'matched' || s.state === 'no_match' || s.state === 'error'
   ).length;
@@ -333,7 +338,7 @@ export function IngredientModal({
 
   // Get manual search ingredient
   const manualIngredient = manualSearchIngredient
-    ? recipe.ingredients.find(i => i.id === manualSearchIngredient)
+    ? matchableIngredients.find(i => i.id === manualSearchIngredient)
     : null;
 
   return (
@@ -372,7 +377,7 @@ export function IngredientModal({
             </SheetHeader>
 
             <div className="flex-1 overflow-y-auto p-6 space-y-3">
-              {recipe.ingredients.map((ingredient) => {
+              {matchableIngredients.map((ingredient) => {
                 const matchState = matchStates.get(ingredient.id) || {
                   ingredient,
                   state: 'waiting' as const,

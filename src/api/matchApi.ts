@@ -44,6 +44,19 @@ export interface IngredientFeedback {
   timestamp: Date;
 }
 
+// Basic ingredients that should not be matched (excluded from shopping list)
+const BASIC_INGREDIENTS = ['water', 'salt', 'sugar'];
+
+/**
+ * Check if an ingredient is a basic ingredient that should be excluded from matching
+ * @param ingredientName - The name of the ingredient to check
+ * @returns true if the ingredient is a basic ingredient
+ */
+export function isBasicIngredient(ingredientName: string): boolean {
+  const normalized = ingredientName.toLowerCase().trim();
+  return BASIC_INGREDIENTS.some(basic => normalized.includes(basic));
+}
+
 // Log feedback to console for MVP
 export function logFeedback(feedback: IngredientFeedback) {
   console.log('📊 User Feedback:', {
@@ -64,6 +77,17 @@ export async function matchIngredientToProducts(
   products: WeeeProduct[],
   recipeName?: string
 ): Promise<IngredientMatchResult> {
+  // Skip matching for basic ingredients
+  if (isBasicIngredient(ingredient.name)) {
+    console.log(`[matchApi] Skipping basic ingredient: ${ingredient.name}`);
+    return {
+      ingredient,
+      bestMatch: null,
+      alternatives: [],
+      candidateCount: 0,
+    };
+  }
+
   const response = await fetch('/api/match', {
     method: 'POST',
     headers: {
