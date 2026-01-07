@@ -518,7 +518,7 @@ const matchRequestSchema = z.object({
 | Endpoint | Avg Response Time | Notes |
 |----------|------------------|-------|
 | GET /api/recipes | ~50ms | Static JSON read |
-| GET /api/products | ~100ms | Large JSON file (1000+ items) |
+| GET /api/products | ~100ms | Large JSON file (2,020 items) |
 | POST /api/match | ~2-5s | Includes OpenAI API call |
 
 ### Optimization Tips

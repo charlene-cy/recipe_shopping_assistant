@@ -250,27 +250,56 @@ localStorage.removeItem('cartItems');
 
 **Format:** Array of product objects (Weee! catalog format)
 
+**Total Products:** 2,020
+
 **Example:**
 ```json
 [
   {
-    "id": "prod-123",
-    "name": "Green Onion 1 bunch",
-    "price": 0.69,
-    "image": "https://...",
-    "category": "veg"
+    "category": "meat",
+    "product_name": "Beef Chuck Steak 1 lb",
+    "price": 8.99,
+    "unit_price": "$8.99/lb",
+    "sales_count": 500,
+    "image_url": "https://img08.weeecdn.net/product/...",
+    "source_url": "https://www.sayweee.com/en/category/meat"
   },
   {
-    "id": "prod-456",
-    "name": "Beef Chuck Steak 1 lb",
-    "price": 8.99,
-    "image": "https://...",
-    "category": "meat"
+    "category": "veg",
+    "product_name": "Green Onion 1 bunch",
+    "price": 0.69,
+    "unit_price": "$0.69/bunch",
+    "sales_count": null,
+    "image_url": "https://img08.weeecdn.net/product/...",
+    "source_url": "https://www.sayweee.com/en/category/veg"
   }
 ]
 ```
 
-**Note:** Products are transformed when loaded via API to add `ingredientId: ""` field.
+**Product Categories:**
+
+| Category | Count | Description |
+|----------|-------|-------------|
+| `meat` | 480 | Beef, pork, chicken, lamb, and other meat products |
+| `sauce` | 835 | Soy sauce, oyster sauce, cooking oils, vinegars, and condiments |
+| `tofu` | 363 | Tofu, bean curd, and soy-based products |
+| `veg` | 342 | Fresh vegetables, herbs, and produce |
+
+**Raw Product Fields:**
+- `category`: Product category (meat, sauce, tofu, veg)
+- `product_name`: Full product name with size/weight
+- `price`: Price in USD
+- `unit_price`: Price per unit (e.g., "$8.99/lb") or "nan"
+- `sales_count`: Number of sales (nullable)
+- `image_url`: Weee! CDN image URL
+- `source_url`: Original Weee! product page URL
+
+**Note:** Products are transformed when loaded via API route (`/api/products`):
+- Raw field `product_name` → `name`
+- Raw field `image_url` → `image`
+- Adds `id: "weee-{index}"` (generated)
+- Adds `ingredientId: ""` (legacy field, always empty)
+- Category, unit_price, sales_count, and source_url are dropped in transformation
 
 ---
 
@@ -383,7 +412,7 @@ normalizeIngredientName("SOY SAUCE")       // "soy sauce"
 ### Limits
 
 - **Recipes:** ~20 recipes (current dataset)
-- **Products:** ~1000+ products (Weee! catalog)
+- **Products:** 2,020 products (Weee! catalog: 480 meat, 835 sauce, 363 tofu, 342 veg)
 - **localStorage:** ~5-10MB limit (browser-dependent)
 - **Match candidates:** Max 20 sent to AI
 - **Alternatives:** Max 5 per ingredient

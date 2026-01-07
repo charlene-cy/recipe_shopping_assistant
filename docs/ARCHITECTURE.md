@@ -47,7 +47,7 @@ Recipe Shopping Assistant is built on a modern, serverless architecture using Ne
 │  ┌────────────────────────────────────────────────────────┐ │
 │  │  Data Layer                                            │ │
 │  │  ├── Recipes.json (18 recipes)                        │ │
-│  │  └── Products Data.json (1000+ products)              │ │
+│  │  └── Products Data.json (2,020 products)              │ │
 │  └────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────┘
                             ↕ HTTP/JSON
@@ -245,18 +245,31 @@ The application uses a **database-free architecture**:
 ]
 ```
 
-**data/Products Data.json** (1000+ products)
+**data/Products Data.json** (2,020 products across 4 categories)
 ```json
 [
   {
-    "id": "prod-123",
-    "name": "Green Onion 1 bunch",
+    "category": "meat",
+    "product_name": "Beef Chuck Steak 1 lb",
+    "price": 8.99,
+    "unit_price": "$8.99/lb",
+    "sales_count": 500,
+    "image_url": "https://img08.weeecdn.net/product/...",
+    "source_url": "https://www.sayweee.com/en/category/meat"
+  },
+  {
+    "category": "veg",
+    "product_name": "Green Onion 1 bunch",
     "price": 0.69,
-    "image": "https://...",
-    "category": "veg"
+    "unit_price": "$0.69/bunch",
+    "sales_count": null,
+    "image_url": "https://img08.weeecdn.net/product/...",
+    "source_url": "https://www.sayweee.com/en/category/veg"
   }
 ]
 ```
+
+**Categories:** meat (480), sauce (835), tofu (363), veg (342)
 
 ### localStorage Schema
 
